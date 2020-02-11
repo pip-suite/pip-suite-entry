@@ -1,0 +1,17 @@
+<md-dialog class="pip-entry lp0 rp0">
+    <md-dialog-content>
+        <pip-post-signup-panel pip-party="$ctrl.$party">
+        </pip-post-signup-panel>
+    </md-dialog-content>
+    <md-dialog-actions class="layout-row layout-align-end-center">
+        <md-button ng-hide="$ctrl.transaction.busy()" class="md-accent"
+                   ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">
+            {{ ::'CONTINUE' | translate }}
+        </md-button>
+
+        <md-button ng-show="$ctrl.transaction.busy()" class="md-warn"
+                   ng-click="$ctrl.transaction.abort()" aria-label="ABORT">
+            {{ ::'CANCEL' | translate }}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

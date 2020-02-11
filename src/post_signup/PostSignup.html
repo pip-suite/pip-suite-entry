@@ -1,0 +1,17 @@
+<div class="pip-card-container pip-outer-scroll pip-entry">
+    <pip-card width="400">
+        <pip-post-signup-panel pip-party="$ctrl.$party">
+        </pip-post-signup-panel>
+        <div class="pip-footer">
+            <md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" type="submit"
+                       ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">
+                {{ ::'CONTINUE' | translate }}
+            </md-button>
+
+            <md-button ng-show="$ctrl.transaction.busy()" class="md-warn"
+                       ng-click="$ctrl.transaction.abort()" aria-label="ABORT">
+                {{ ::'CANCEL' | translate }}
+            </md-button>
+        </div>
+    </pip-card>
+</div>

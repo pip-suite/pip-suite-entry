@@ -1,0 +1,73 @@
+<div class=" layout-column layout-align-center-center flex">
+    <md-card min-width="600">
+        <div class="p24">
+            <div class="pip-header">
+                <h3>{{ 'ABOUT_ME' | translate }}</h3>
+            </div>
+            <div class="pip-body">
+                <div class="pip-content">
+                    TDN: Put here current party information received via /api/parties/current call.
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>
+<!--<div class="pip-body">
+    <div class="pip-content pip-entry">
+
+        <h2 pip-translate="SIGNIN_TITLE"></h2>
+<form name='form' novalidate >
+                     <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">
+                        <label>{{::'LOGIN' | translate}}</label>
+                        <input name="login" type="text" ng-model="data.login" required step="any"  pip-clear-errors
+                               tabindex="2" />
+
+                        <div class="hint text-overflow w-stretch" ng-if="touchedErrorsWithHint(form, form.login).hint">
+                            {{::'HINT_LOGIN' | translate}}
+                        </div>
+
+                        <div ng-messages="touchedErrorsWithHint(form, form.login)" ng-if="!form.$pristine" md-auto-hide="false" class="md-input-error">
+                            <div ng-message="required">{{::'ERROR_LOGIN_INVALID' | translate }}</div>
+                            
+                            <div ng-message="ERROR_LOGIN_NOT_FOUND">hkjk</div>
+                            <div ng-message="ERROR_NO_LOGIN">fhfhf</div>
+                            <div ng-message="ERROR_WRONG_LOGIN">fhgfhfhf</div>
+                            <div ng-message="ERROR_invalid">invalid</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="pip-no-hint">
+                        <label>{{::'ENTRY_RESET_CODE' | translate}}</label>
+                        <input name="code"
+                               ng-model="data.code" required tabindex="3" />
+
+                        <div class="hint text-overflow w-stretch" ng-if="touchedErrorsWithHint(form, form.code).hint">
+                            {{::'ENTRY_RESET_CODE' | translate}}
+                        </div>
+                        <div ng-messages="touchedErrorsWithHint(form, form.code)" ng-if="!form.$pristine" md-auto-hide="false" class="md-input-error">
+                            <div ng-message="required">{{::'ERROR_CODE_INVALID' | translate }}</div>
+                            <div ng-message="ERROR_INVALID_CODE">{{::'ERROR_INVALID_CODE' }}</div>
+                        </div>
+                    </md-input-container>
+
+            <div style="height: 36px; overflow: hidden;">
+                <md-button ng-click="onSignin()" aria-label="SIGNIN"
+                           class="md-raised md-accent w-stretch m0" tabindex="6"
+                           pip-test="button-signin">
+                    {{::'verify' | translate}}
+                </md-button>
+                <md-button ng-if="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn m0 w-stretch"
+                           tabindex="5" aria-label="ABORT"
+                           pip-test="button-cancel">
+                    {{::'CANCEL' | translate}}
+                </md-button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+         form.login:               {{form.login.$error}} <br>
+         form.code:               {{form.code.$error}} <br>
+         form.$pristine  {{form.$pristine}} <br>
+<div ng-click="form.login.$error.ERROR_invalid=!form.login.$error.ERROR_invalid">click me</div>-->

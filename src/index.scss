@@ -1,0 +1,84 @@
+@import "../node_modules/pip-webui-all/dist/pip-webui.scss";
+
+md-dialog.pip-entry {
+
+  md-dialog-actions, md-dialog-content{
+    background-color: $color-content !important;
+  }
+  $width-dialog-content: 400px;
+  $padding-content: 16px;
+
+  md-dialog-content {
+    max-width: $width-dialog-content;
+    min-width: $width-dialog-content;
+    padding-top: $padding-content;
+    padding-bottom: $padding-content;
+    @media (max-width: 768px) {
+      max-width: 100%;
+      min-width: 100%;
+      // padding-left: 0;
+      // padding-right: 0;
+    }
+  }
+
+}
+
+.pip-entry {
+
+  //background-image: url('images/entry_bg.png');
+  background-position: 50% 50%;
+
+  .pip-body{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  md-input-container [ng-messages] ::after{
+    opacity: 1;
+  }
+
+ md-input-container .md-input-message-animation, md-input-container .md-char-counter {
+        font-size: 12px;
+        line-height: 14px;
+        overflow: hidden;
+        -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+        transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+        opacity: 1;
+        margin-top: 0;
+    }
+
+  h2 {
+    margin-top: 0px;
+  }
+
+  md-input-container {
+    display: block;
+  }
+
+  .pip-ref-item {
+    height: auto;
+  }
+
+  .text-signup {
+    margin-right: -16px!important; 
+    margin-left: -16px!important;  
+    background-color: rgb(238, 238, 238)!important; 
+  }
+}
+
+.pip-xs, .pip-sm {
+  .pip-entry {
+    .pip-body {
+      padding-left: 16px;
+      padding-right: 16px;
+
+      .pip-content {
+        background-color: $color-content;
+        // padding-left: 16px;
+        // padding-right: 16px;
+        padding-top: 16px;
+      }
+    }
+  }
+}
+
