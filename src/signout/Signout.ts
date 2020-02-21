@@ -8,7 +8,7 @@ export class SignoutController {
         pipAuthState: pip.rest.IAuthStateService,
         pipEntry: IEntryService
     ) {
-        "ngIngect";
+        "ngInject";
 
        pipEntry.signout();
         pipAuthState.goToUnauthorized({});

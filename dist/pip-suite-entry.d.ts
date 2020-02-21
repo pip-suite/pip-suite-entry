@@ -314,6 +314,57 @@ export class ExpireChangePasswordViewModel {
     onChange(callback?: () => void): void;
 }
 
+export class RecoverPasswordController {
+    private $scope;
+    private pipRecoverPasswordViewModel;
+    private pipResetPasswordDialog;
+    private $state;
+    private pipAuthState;
+    private pipFormErrors;
+    private $window;
+    constructor($scope: ng.IScope, pipRecoverPasswordViewModel: RecoverPasswordViewModel, pipResetPasswordDialog: IResetPasswordDialogService, pipEntryCommon: IEntryCommonService, $state: ng.ui.IStateService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, $window: ng.IWindowService);
+    goBack(): void;
+    readonly transaction: any;
+    readonly config: any;
+    onRecover(): void;
+}
+
+export interface IRecoverPasswordDialogService {
+    show(params: any, successCallback?: () => void, cancelCallback?: () => void): void;
+}
+
+export class RecoverPasswordModel extends EntryModel {
+    private $rootScope;
+    private $location;
+    private $state;
+    private $injector;
+    private pipAuthState;
+    private pipFormErrors;
+    private pipRest;
+    private pipTranslate;
+    private pipEntryData;
+    private pipToasts;
+    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
+    init($scope: any): void;
+    private setElementVisability();
+    onRecover(gotoReset: () => void): void;
+}
+
+
+export class RecoverPasswordViewModel {
+    private pipTranslate;
+    private pipEntryData;
+    private pipToasts;
+    model: RecoverPasswordModel;
+    constructor(pipEntryCommon: any, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: any, pipToasts: any);
+    readonly transaction: pip.services.Transaction;
+    readonly hideObject: any;
+    readonly showServerError: any;
+    readonly config: any;
+    initModel($scope: any): void;
+    onRecover(gotoReset: any): void;
+}
+
 export class PostSignupController implements ng.IController {
     private $window;
     $party: any;
@@ -408,57 +459,6 @@ export class ResetPasswordViewModel {
     initModel($scope: any): void;
     onShowToast(message: any, type: any): void;
     onReset(callback?: () => void): void;
-}
-
-export class RecoverPasswordController {
-    private $scope;
-    private pipRecoverPasswordViewModel;
-    private pipResetPasswordDialog;
-    private $state;
-    private pipAuthState;
-    private pipFormErrors;
-    private $window;
-    constructor($scope: ng.IScope, pipRecoverPasswordViewModel: RecoverPasswordViewModel, pipResetPasswordDialog: IResetPasswordDialogService, pipEntryCommon: IEntryCommonService, $state: ng.ui.IStateService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, $window: ng.IWindowService);
-    goBack(): void;
-    readonly transaction: any;
-    readonly config: any;
-    onRecover(): void;
-}
-
-export interface IRecoverPasswordDialogService {
-    show(params: any, successCallback?: () => void, cancelCallback?: () => void): void;
-}
-
-export class RecoverPasswordModel extends EntryModel {
-    private $rootScope;
-    private $location;
-    private $state;
-    private $injector;
-    private pipAuthState;
-    private pipFormErrors;
-    private pipRest;
-    private pipTranslate;
-    private pipEntryData;
-    private pipToasts;
-    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
-    init($scope: any): void;
-    private setElementVisability();
-    onRecover(gotoReset: () => void): void;
-}
-
-
-export class RecoverPasswordViewModel {
-    private pipTranslate;
-    private pipEntryData;
-    private pipToasts;
-    model: RecoverPasswordModel;
-    constructor(pipEntryCommon: any, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: any, pipToasts: any);
-    readonly transaction: pip.services.Transaction;
-    readonly hideObject: any;
-    readonly showServerError: any;
-    readonly config: any;
-    initModel($scope: any): void;
-    onRecover(gotoReset: any): void;
 }
 
 function configEntryResources(pipRestProvider: pip.rest.IRestProvider): void;
