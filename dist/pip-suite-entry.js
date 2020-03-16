@@ -4254,42 +4254,6 @@ try {
   module = angular.module('pipEntry.Templates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('recover_password/RecoverPassword.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-recover-password-panel class="scroll-y"></pip-recover-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" ng-click="$ctrl.onRecover()" aria-label="RECOVER_PWD_RECOVER" type="submit" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0">{{ ::\'RECOVER_PWD_RECOVER\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('pipEntry.Templates');
-} catch (e) {
-  module = angular.module('pipEntry.Templates', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('recover_password/RecoverPasswordDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-recover-password-panel></pip-recover-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctlr.transaction.busy()" ng-click="$ctlr.goBack()" class="rm8" aria-label="CANCEL">{{::\'CANCEL\' | translate}}</md-button><md-button ng-hide="$ctlr.transaction.busy()" class="md-accent" ng-click="$ctlr.onRecover()" aria-label="RECOVER_PWD_RECOVER" ng-disabled="($$ctlr.config.form.$pristine && !$ctlr.config.data.login) || $ctlr.config.data.login== undefined || || $ctlr.config.data.serverUrl.length == 0 || $ctlr.config.data.login.length == 0">{{::\'RECOVER_PWD_RECOVER\' | translate}}</md-button><md-button ng-show="$ctlr.transaction.busy()" class="md-warn" ng-click="$ctlr.transaction.abort()" aria-label="ABORT">{{::\'CANCEL\' | translate}}</md-button></md-dialog-actions></md-dialog>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('pipEntry.Templates');
-} catch (e) {
-  module = angular.module('pipEntry.Templates', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('recover_password/RecoverPasswordPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.title">{{ \'RECOVER_PWD_TITLE\' | translate }}</h2><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && !$ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_LOGIN\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && $ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_EMAIL\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle2">{{ \'RECOVER_PWD_TEXT_2\' | translate }}</p><form name="form" novalidate="" autocomplete="off"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{ ::\'ENTRY_CHANGE_SERVER\' | translate }}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" aria-label="URL" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label> <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label> <input name="login" type="text" aria-label="LOGIN" ng-model="$ctrl.config.data.login" required="" step="any" pip-clear-errors="" ng-disabled="$ctrl.transaction.busy()" tabindex="2"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">{{::\'HINT_LOGIN\' | translate}}</div><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div><div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div></div></md-input-container></form></div></div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('pipEntry.Templates');
-} catch (e) {
-  module = angular.module('pipEntry.Templates', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('post_signup/PostSignup.html',
     '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-post-signup-panel pip-party="$ctrl.$party"></pip-post-signup-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" type="submit" ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">{{ ::\'CONTINUE\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
 }]);
@@ -4317,6 +4281,42 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('post_signup/PostSignupPanel.html',
     '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 class="text-overflow" ng-if="!$ctrl.hideObject.title">{{ \'POST_SIGNUP_TITLE\' | translate }}</h2><p class="bm0 line-height-string" ng-if="!$ctrl.hideObject.successTitle">{{ \'POST_SIGNUP_TEXT_1\' | translate }}</p><p class="line-height-string m0" ng-if="!$ctrl.hideObject.subTitle">{{ \'POST_SIGNUP_TEXT_2\' | translate }}</p><form name="form" novalidate=""><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8" md-auto-hide="false"><div ng-message="ERROR_1000">{{::\'ERROR_1000\' | translate}}</div><div ng-message="ERROR_1110">{{::\'ERROR_1110\' | translate}}</div><div ng-message="ERROR_1111">{{::\'ERROR_1111\' | translate}}</div><div ng-message="ERROR_1112">{{::\'ERROR_1112\' | translate}}</div><div ng-message="ERROR_1002">{{::\'ERROR_1002\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="pip-ref-item"><pip-avatar-edit ng-disabled="$ctrl.transaction.busy()" ng-if="$ctrl.config.enableAvatar" pip-reset="false" pip-party-id="$ctrl.config.data.id" pip-created="$ctrl.onPictureCreated($event)" pip-changed="$ctrl.onPictureChanged($control, $event)" class="rm16 flex-fixed"></pip-avatar-edit><div class="pip-content"><p class="pip-title">{{ $ctrl.config.data.name }}</p><p class="pip-subtitle">{{ $ctrl.config.data.email }}</p></div></div><md-input-container class="pip-no-hint bp4"><label>{{ \'HINT_ABOUT\' | translate }}</label> <textarea ng-model="$ctrl.config.data.about" ng-initial="" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="">\n' +
     '                        </textarea></md-input-container><div class="tm2"><p class="text-caption bm0">{{ \'GENDER\' | translate }}</p><md-select class="w-stretch tm0 tp0 bp8" ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.gender" label="{{\'GENDER\' | translate}}" ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors=""><md-option ng-value="opt.id" ng-repeat="opt in $ctrl.genders track by opt.id">{{ opt.name }}</md-option></md-select></div><div class="tm2"><p class="text-caption bm0">{{ ::\'BIRTHDAY\' | translate }}</p><pip-date ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.birthday" pip-time-mode="past" pip-clear-errors="" time-mode="past"></pip-date></div><md-input-container><label>{{ ::\'LANGUAGE\' | translate }}</label><md-select class="w-stretch tm0 tp0 bp16" ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.language" ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors=""><md-option ng-value="opt.id" ng-repeat="opt in $ctrl.languages track by opt.id">{{ opt.name }}</md-option></md-select></md-input-container></form></div></div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('pipEntry.Templates');
+} catch (e) {
+  module = angular.module('pipEntry.Templates', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('recover_password/RecoverPassword.html',
+    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-recover-password-panel class="scroll-y"></pip-recover-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" ng-click="$ctrl.onRecover()" aria-label="RECOVER_PWD_RECOVER" type="submit" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0">{{ ::\'RECOVER_PWD_RECOVER\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('pipEntry.Templates');
+} catch (e) {
+  module = angular.module('pipEntry.Templates', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('recover_password/RecoverPasswordDialog.html',
+    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-recover-password-panel></pip-recover-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctlr.transaction.busy()" ng-click="$ctlr.goBack()" class="rm8" aria-label="CANCEL">{{::\'CANCEL\' | translate}}</md-button><md-button ng-hide="$ctlr.transaction.busy()" class="md-accent" ng-click="$ctlr.onRecover()" aria-label="RECOVER_PWD_RECOVER" ng-disabled="($$ctlr.config.form.$pristine && !$ctlr.config.data.login) || $ctlr.config.data.login== undefined || || $ctlr.config.data.serverUrl.length == 0 || $ctlr.config.data.login.length == 0">{{::\'RECOVER_PWD_RECOVER\' | translate}}</md-button><md-button ng-show="$ctlr.transaction.busy()" class="md-warn" ng-click="$ctlr.transaction.abort()" aria-label="ABORT">{{::\'CANCEL\' | translate}}</md-button></md-dialog-actions></md-dialog>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('pipEntry.Templates');
+} catch (e) {
+  module = angular.module('pipEntry.Templates', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('recover_password/RecoverPasswordPanel.html',
+    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.title">{{ \'RECOVER_PWD_TITLE\' | translate }}</h2><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && !$ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_LOGIN\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && $ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_EMAIL\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle2">{{ \'RECOVER_PWD_TEXT_2\' | translate }}</p><form name="form" novalidate="" autocomplete="off"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{ ::\'ENTRY_CHANGE_SERVER\' | translate }}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" aria-label="URL" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label> <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label> <input name="login" type="text" aria-label="LOGIN" ng-model="$ctrl.config.data.login" required="" step="any" pip-clear-errors="" ng-disabled="$ctrl.transaction.busy()" tabindex="2"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">{{::\'HINT_LOGIN\' | translate}}</div><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div><div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div></div></md-input-container></form></div></div>');
 }]);
 })();
 

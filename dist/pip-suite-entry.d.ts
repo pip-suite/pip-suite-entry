@@ -314,6 +314,55 @@ export class ExpireChangePasswordViewModel {
     onChange(callback?: () => void): void;
 }
 
+export class PostSignupController implements ng.IController {
+    private $window;
+    $party: any;
+    private pipPostSignupViewModel;
+    $onInit(): void;
+    constructor($window: ng.IWindowService, $party: any, pipPostSignupViewModel: PostSignupViewModel);
+    onPostSignupSubmit(): void;
+    readonly transaction: any;
+}
+
+export interface IPostSignupDialogService {
+    show(params: any, successCallback?: () => void, cancelCallback?: () => void): void;
+}
+
+export class PostSignupModel extends EntryModel {
+    private $rootScope;
+    private $location;
+    private $state;
+    private $injector;
+    private pipErrorPageConfigService;
+    private pipAuthState;
+    private pipFormErrors;
+    private pipEntry;
+    private pipRest;
+    private pipTranslate;
+    private pipEntryData;
+    private pipToasts;
+    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipErrorPageConfigService: pip.errors.IErrorPageConfigService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipEntry: IEntryService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
+    init($scope: any): void;
+    private setElementVisability();
+    private checkSupported();
+    onPostSignupSubmit(callback?: () => void): void;
+}
+
+
+export class PostSignupViewModel {
+    private pipTranslate;
+    private pipEntryData;
+    private pipToasts;
+    model: PostSignupModel;
+    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipErrorPageConfigService: pip.errors.IErrorPageConfigService, pipAuthState: pip.rest.IAuthStateService, pipEntry: IEntryService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
+    readonly transaction: pip.services.Transaction;
+    readonly hideObject: any;
+    readonly showServerError: any;
+    readonly config: any;
+    initModel($scope: any): void;
+    onPostSignupSubmit(callback?: () => void): void;
+}
+
 export class RecoverPasswordController {
     private $scope;
     private pipRecoverPasswordViewModel;
@@ -363,55 +412,6 @@ export class RecoverPasswordViewModel {
     readonly config: any;
     initModel($scope: any): void;
     onRecover(gotoReset: any): void;
-}
-
-export class PostSignupController implements ng.IController {
-    private $window;
-    $party: any;
-    private pipPostSignupViewModel;
-    $onInit(): void;
-    constructor($window: ng.IWindowService, $party: any, pipPostSignupViewModel: PostSignupViewModel);
-    onPostSignupSubmit(): void;
-    readonly transaction: any;
-}
-
-export interface IPostSignupDialogService {
-    show(params: any, successCallback?: () => void, cancelCallback?: () => void): void;
-}
-
-export class PostSignupModel extends EntryModel {
-    private $rootScope;
-    private $location;
-    private $state;
-    private $injector;
-    private pipErrorPageConfigService;
-    private pipAuthState;
-    private pipFormErrors;
-    private pipEntry;
-    private pipRest;
-    private pipTranslate;
-    private pipEntryData;
-    private pipToasts;
-    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipErrorPageConfigService: pip.errors.IErrorPageConfigService, pipAuthState: pip.rest.IAuthStateService, pipFormErrors: pip.errors.IFormErrorsService, pipEntry: IEntryService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
-    init($scope: any): void;
-    private setElementVisability();
-    private checkSupported();
-    onPostSignupSubmit(callback?: () => void): void;
-}
-
-
-export class PostSignupViewModel {
-    private pipTranslate;
-    private pipEntryData;
-    private pipToasts;
-    model: PostSignupModel;
-    constructor(pipEntryCommon: IEntryCommonService, pipTransaction: pip.services.ITransactionService, $rootScope: ng.IRootScopeService, $location: ng.ILocationService, $state: ng.ui.IStateService, $injector: ng.auto.IInjectorService, pipErrorPageConfigService: pip.errors.IErrorPageConfigService, pipAuthState: pip.rest.IAuthStateService, pipEntry: IEntryService, pipFormErrors: pip.errors.IFormErrorsService, pipRest: pip.rest.IRestService, pipTranslate: pip.services.ITranslateService, pipEntryData: IEntryDataService, pipToasts: pip.controls.IToastService);
-    readonly transaction: pip.services.Transaction;
-    readonly hideObject: any;
-    readonly showServerError: any;
-    readonly config: any;
-    initModel($scope: any): void;
-    onPostSignupSubmit(callback?: () => void): void;
 }
 
 export class ResetPasswordController {
