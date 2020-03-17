@@ -155,7 +155,7 @@
             </p>
 
             <md-button ng-hide="$ctrl.transaction.busy()" class="md-raised m0  md-accent w-stretch" ng-click="$ctrl.onSignup()" aria-label="SIGNUP" type="submit"
-                xxng-disabled="$ctrl.config.form.$invalid || ($ctrl.config.form.$pristine && !$ctrl.config.data.email) || $ctrl.config.data.serverUrl.length == 0
+                ng-disabled="$ctrl.config.form.$invalid || ($ctrl.config.form.$pristine && !$ctrl.config.data.email) || $ctrl.config.data.serverUrl.length == 0
                                || $ctrl.config.data.email.length == 0 || ($ctrl.config.data.login.length == 0 && !$ctrl.config.useEmailAsLogin) || (!$ctrl.config.data.password)
                                || (!$ctrl.config.data.name) || $ctrl.config.data.name.length == 0 || $ctrl.config.data.password.length == 0">
                 {{::'SIGNUP_TITLE' | translate}}

@@ -6,7 +6,7 @@
         // Application Configuration must go first
         'pipSampleConfig',
         // Modules from WebUI Framework
-         'pipControls', 'pipLayout', 'pipNav', 'pipTheme',
+         'pipControls', 'pipLayout', 'pipNav', 'pipTheme', 'pipTheme.Default',
         'pipEntry', 'pipCommonRest', 
         // Sample Application Modules
         'pipWelcome', 'pipAboutMe', 'pipAboutSystem'

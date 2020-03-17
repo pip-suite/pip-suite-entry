@@ -106,7 +106,7 @@
             <div style="height: 36px; overflow: hidden;">
                 <md-button ng-if="!$ctrl.transaction.busy()" ng-click="$ctrl.onSignin()" aria-label="SIGNIN"
                            class="md-raised md-accent w-stretch m0" tabindex="6" type="submit"
-                           xxng-disabled="($ctrl.config.data.login == undefined) || $ctrl.config.data.login.length == 0 || $ctrl.config.data.serverUrl == '' ||
+                           ng-disabled="($ctrl.config.data.login == undefined) || $ctrl.config.data.login.length == 0 || $ctrl.config.data.serverUrl == '' ||
                                    $ctrl.config.data.serverUrl == undefined || $ctrl.config.data.serverUrl.length == 0 || ($ctrl.config.data.password == undefined)"
                            pip-test="button-signin">
                     {{::'SIGNIN_TITLE' | translate}}

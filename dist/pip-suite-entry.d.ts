@@ -48,6 +48,78 @@ export class ChangePasswordViewModel {
     onChange(callback?: () => void): void;
 }
 
+export class Account {
+    roles: string[];
+    theme: string;
+    language: string;
+    time_zone: string;
+    create_time: string;
+    change_pwd_time: string;
+    login: string;
+    name: string;
+    id: string;
+    custom_hdr?: any;
+    custom_dat?: any;
+    settings?: any;
+}
+
+export class EmailSettings {
+    name?: string;
+    email?: string;
+    language?: string;
+    verified?: boolean;
+    id?: string;
+}
+
+
+export class GENDER {
+    static MALE: 'male';
+    static FEMALE: 'female';
+    static NOT_SPECIFIED: 'n/s';
+}
+
+export interface IEntryDataService {
+    getUserId(): string;
+    signup(params: any, successCallback?: (user: SessionData) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    recoverPassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    resetPassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    expireChangePassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    requestEmailVerification(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    verifyEmail(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    signupValidate(login: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    saveSettingsKey(section: string, key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+}
+
+
+export interface ISessionDataService {
+    getSessionId(): string;
+    getUserId(): string;
+    getSessions(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    restoreSession(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    getUserSessions(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+}
+
+export class Role {
+}
+
+export class Session {
+    user_id: string;
+    user_name: string;
+    address: string;
+    client: string;
+    request_time: string;
+    open_time: string;
+    active: boolean;
+    id: string;
+}
+
+export class SessionData extends Session {
+    user: Account;
+    data: any;
+    change_pwd_time?: string;
+}
+
+
 
 
 export class EntryHideObject {
@@ -193,78 +265,6 @@ export interface IEntryCommonService {
 function compareOldPassword($parse: ng.IParseService): ng.IDirective;
 function compareNewPassword($parse: ng.IParseService): ng.IDirective;
 function comparePasswordMatch($parse: ng.IParseService): ng.IDirective;
-
-export class Account {
-    roles: string[];
-    theme: string;
-    language: string;
-    time_zone: string;
-    create_time: string;
-    change_pwd_time: string;
-    login: string;
-    name: string;
-    id: string;
-    custom_hdr?: any;
-    custom_dat?: any;
-    settings?: any;
-}
-
-export class EmailSettings {
-    name?: string;
-    email?: string;
-    language?: string;
-    verified?: boolean;
-    id?: string;
-}
-
-
-export class GENDER {
-    static MALE: 'male';
-    static FEMALE: 'female';
-    static NOT_SPECIFIED: 'n/s';
-}
-
-export interface IEntryDataService {
-    getUserId(): string;
-    signup(params: any, successCallback?: (user: SessionData) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    recoverPassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    resetPassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    expireChangePassword(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    requestEmailVerification(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    verifyEmail(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    signupValidate(login: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    saveSettingsKey(section: string, key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-}
-
-
-export interface ISessionDataService {
-    getSessionId(): string;
-    getUserId(): string;
-    getSessions(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    restoreSession(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    getUserSessions(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-}
-
-export class Role {
-}
-
-export class Session {
-    user_id: string;
-    user_name: string;
-    address: string;
-    client: string;
-    request_time: string;
-    open_time: string;
-    active: boolean;
-    id: string;
-}
-
-export class SessionData extends Session {
-    user: Account;
-    data: any;
-    change_pwd_time?: string;
-}
-
 
 export class ExpireChangePasswordController {
     private pipExpireChangePasswordViewModel;

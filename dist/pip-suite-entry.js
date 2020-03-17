@@ -4183,7 +4183,26 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('change_password/ChangePassword.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-change-password-panel class="scroll-y"></pip-change-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_CHANGE_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_CHANGE_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-change-password-panel class="scroll-y">\n' +
+    '        </pip-change-password-panel>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_CHANGE_PASSWORD"\n' +
+    '                       ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                       class="md-accent" type="submit">\n' +
+    '                {{ ::\'ENTRY_CHANGE_PASSWORD\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4195,7 +4214,27 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('change_password/ChangePasswordDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-change-password-panel></pip-change-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_CHANGE_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_CHANGE_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></md-dialog-actions></md-dialog>');
+    '<md-dialog class="pip-entry  lp0 rp0">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-change-password-panel>\n' +
+    '        </pip-change-password-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '\n' +
+    '    <md-dialog-actions class="layout-row layout-align-end-center">\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_CHANGE_PASSWORD"\n' +
+    '                   ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                   class="md-accent" type="submit">\n' +
+    '            {{ ::\'ENTRY_CHANGE_PASSWORD\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4207,7 +4246,115 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('change_password/ChangePasswordPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && $ctrl.showServerError && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.changePwdTitle">{{::\'CHANGE_PWD_PASSWORD\' | translate}}</h2><p class="title-padding bm16" ng-if="!$ctrl.hideObject.changePwdSubTitle">{{::\'CHANGE_PWD_TEXT\' | translate}}</p><form name="form" novalidate="" autocomplete="off"><input name="password" style="display:none"> <input name="passwordNew" style="display:none"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{ ::\'ERROR_ACT_EXECUTE\' | translate }}</div><div ng-message="ERROR_-1">{{ ::\'ERROR_SERVER\' | translate }}</div><div ng-message="ERROR_UNKNOWN">{{ \'ERROR_UNKNOWN\' | translate }}</div></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label>{{::\'OLD_PASSWORD\' | translate}}</label> <input name="password" ng-disabled="$ctrl.transaction.busy()" xxxpip-clear-errors="" type="password" tabindex="4" ng-model="$ctrl.config.data.password" required="" minlength="6" ng-change="$ctrl.onChangePassword()" pip-compare-old-password="" compare-to="$ctrl.config.data.passwordNew"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password, true)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div><div ng-message="ERROR_compareTo">{{::\'PASSWORD_IDENTICAL\' | translate}}</div></div></md-input-container><md-input-container class="display bp4"><label>{{::\'NEW_PASSWORD_SET\' | translate}}</label> <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" xxxpip-clear-errors="" type="password" tabindex="4" ng-model="$ctrl.config.data.passwordNew" ng-change="$ctrl.onChangePasswordNew()" required="" minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password" autocomplete="off" pip-compare-new-password="" compare-to1="$ctrl.config.data.password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew, true)" md-auto-hide="false"><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="ERROR_compareTo">{{::\'PASSWORD_IDENTICAL\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.passwordNew.$pristine">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div></div></md-input-container><md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm"><label>{{::\'NEW_PASSWORD_CONFIRM\' | translate}}</label> <input name="passwordConfirm" type="password" tabindex="4" required="" minlength="6" ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()" xxpip-clear-errors="" ng-change="$ctrl.onChangePasswordConfirm()" pip-compare-password-match="" compare-to2="$ctrl.config.data.passwordNew" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false"><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="ERROR_compareTo">{{::\'PASSWORD_MATCH\' | translate}}</div></div></md-input-container></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy()  && $ctrl.showServerError  && !$ctrl.hideObject.progress" md-mode="indeterminate"\n' +
+    '                            class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    ' \n' +
+    '        <h2 ng-if="!$ctrl.hideObject.changePwdTitle">{{::\'CHANGE_PWD_PASSWORD\' | translate}}</h2>\n' +
+    '\n' +
+    '        <p class="title-padding bm16" ng-if="!$ctrl.hideObject.changePwdSubTitle">\n' +
+    '            {{::\'CHANGE_PWD_TEXT\' | translate}}\n' +
+    '        </p>\n' +
+    '        <!-- <form name="form" novalidate autocomplete="off">\n' +
+    '            <input type="email" style="display:none">\n' +
+    '            <input type="login" style="display:none">\n' +
+    '            <input type="password" style="display:none"> -->\n' +
+    '        <form name="form" novalidate autocomplete="off">\n' +
+    '                <input name="password" style="display:none">\n' +
+    '                <input name="passwordNew" style="display:none">\n' +
+    '\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{ ::\'ERROR_ACT_EXECUTE\' | translate }}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{ ::\'ERROR_SERVER\' | translate }}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ \'ERROR_UNKNOWN\' | translate }} \n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete\n' +
+    '                        ng-initial autofocus tabindex="1"\n' +
+    '                        class="pip-combobox w-stretch bm8"\n' +
+    '                        name="server"\n' +
+    '                        ng-enabled="!$ctrl.transaction.busy()"\n' +
+    '                        placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}"\n' +
+    '                        md-no-cache="true"\n' +
+    '                        md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                        md-search-text="$ctrl.config.selected.searchURLs"\n' +
+    '                        md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                        md-item-text="item"\n' +
+    '                        md-selected-item-change="$ctrl.onServerUrlChanged()"\n' +
+    '                        md-search-text-change="$ctrl.onChanged()"\n' +
+    '                        md-delay="200"\n' +
+    '                        ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                        pip-clear-errors>\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">\n' +
+    '                <label>{{::\'OLD_PASSWORD\' | translate}}</label>\n' +
+    '                <input \n' +
+    '                    name="password" ng-disabled="$ctrl.transaction.busy()" \n' +
+    '                    xxxpip-clear-errors\n' +
+    '                    type="password" tabindex="4" ng-model="$ctrl.config.data.password"\n' +
+    '                    required minlength="6" ng-change="$ctrl.onChangePassword()"\n' +
+    '                    pip-compare-old-password compare-to="$ctrl.config.data.passwordNew"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password, true)"\n' +
+    '                     class="md-input-error"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_compareTo"> {{::\'PASSWORD_IDENTICAL\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label>{{::\'NEW_PASSWORD_SET\' | translate}}</label>\n' +
+    '                <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" \n' +
+    '                    xxxpip-clear-errors \n' +
+    '                    type="password" tabindex="4" \n' +
+    '                    ng-model="$ctrl.config.data.passwordNew" ng-change="$ctrl.onChangePasswordNew()"\n' +
+    '                    required minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password" autocomplete="off"\n' +
+    '                    pip-compare-new-password  compare-to1="$ctrl.config.data.password"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew, true)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="ERROR_compareTo"> {{::\'PASSWORD_IDENTICAL\' | translate}} </div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.passwordNew.$pristine"> {{::\'ERROR_WRONG_PASSWORD\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm">\n' +
+    '                <label>{{::\'NEW_PASSWORD_CONFIRM\' | translate}}</label>\n' +
+    '                <input name="passwordConfirm" type="password" tabindex="4" required minlength="6" \n' +
+    '                    ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                    xxpip-clear-errors ng-change="$ctrl.onChangePasswordConfirm()"\n' +
+    '                    pip-compare-password-match compare-to2="$ctrl.config.data.passwordNew" \n' +
+    '                    ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="ERROR_compareTo"> {{::\'PASSWORD_MATCH\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4219,7 +4366,26 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('expire_change_password/ExpireChangePassword.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-expire-change-password-panel class="scroll-y"></pip-expire-change-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_EXPIRE_CHANGE_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_EXPIRE_CHANGE_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-expire-change-password-panel class="scroll-y">\n' +
+    '        </pip-expire-change-password-panel>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_EXPIRE_CHANGE_PASSWORD"\n' +
+    '                       ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                       class="md-accent" type="submit">\n' +
+    '                {{ ::\'ENTRY_EXPIRE_CHANGE_PASSWORD\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4231,7 +4397,27 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('expire_change_password/ExpireChangePasswordDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-expire-change-password-panel></pip-expire-change-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_EXPIRE_CHANGE_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_EXPIRE_CHANGE_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></md-dialog-actions></md-dialog>');
+    '<md-dialog class="pip-entry  lp0 rp0">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-expire-change-password-panel>\n' +
+    '        </pip-expire-change-password-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '\n' +
+    '    <md-dialog-actions class="layout-row layout-align-end-center">\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onChange()" aria-label="ENTRY_EXPIRE_CHANGE_PASSWORD"\n' +
+    '                   ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.code.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                   class="md-accent" type="submit">\n' +
+    '            {{ ::\'ENTRY_EXPIRE_CHANGE_PASSWORD\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4243,7 +4429,106 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('expire_change_password/ExpireChangePasswordPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && $ctrl.showServerError && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.changePwdTitle">{{::\'EXPIRE_CHANGE_PWD_PASSWORD\' | translate}}</h2><p class="title-padding bm16" ng-if="!$ctrl.hideObject.changePwdSubTitle">{{::\'EXPIRE_CHANGE_PWD_TEXT\' | translate}}</p><form name="form" novalidate="" autocomplete="off"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{::\'ENTRY_CHANGE_SERVER\' | translate}}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label>{{::\'OLD_PASSWORD\' | translate}}</label> <input name="password" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" type="password" tabindex="4" ng-model="$ctrl.config.data.password" required="" minlength="6"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div></div></md-input-container><md-input-container class="display bp4"><label>{{::\'NEW_PASSWORD_SET\' | translate}}</label> <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" type="password" tabindex="4" ng-model="$ctrl.config.data.passwordNew" required="" minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew)" md-auto-hide="false"><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.passwordNew.$pristine">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div></div></md-input-container><md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm"><label>{{::\'NEW_PASSWORD_CONFIRM\' | translate}}</label> <input name="passwordConfirm" type="password" tabindex="4" required="" minlength="6" ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" pip-compare-password-match="" compare-to2="$ctrl.config.data.passwordNew" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false"><div ng-message="ERROR_compareTo">{{::\'PASSWORD_MATCH\' | translate}}</div><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div></div></md-input-container></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy()  && $ctrl.showServerError  && !$ctrl.hideObject.progress" md-mode="indeterminate"\n' +
+    '                            class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    ' \n' +
+    '        <h2 ng-if="!$ctrl.hideObject.changePwdTitle">{{::\'EXPIRE_CHANGE_PWD_PASSWORD\' | translate}}</h2>\n' +
+    '\n' +
+    '        <p class="title-padding bm16" ng-if="!$ctrl.hideObject.changePwdSubTitle">\n' +
+    '            {{::\'EXPIRE_CHANGE_PWD_TEXT\' | translate}}\n' +
+    '        </p>\n' +
+    '\n' +
+    '        <form name="form" novalidate autocomplete="off">\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="bp16" >\n' +
+    '                <a  ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" \n' +
+    '                    ng-click="$ctrl.config.showServerUrl = true" href="">\n' +
+    '                    {{::\'ENTRY_CHANGE_SERVER\' | translate}}\n' +
+    '                </a>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete\n' +
+    '                        ng-initial autofocus tabindex="1"\n' +
+    '                        class="pip-combobox w-stretch bm8"\n' +
+    '                        name="server"\n' +
+    '                        ng-enabled="!$ctrl.transaction.busy()"\n' +
+    '                        placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}"\n' +
+    '                        md-no-cache="true"\n' +
+    '                        md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                        md-search-text="$ctrl.config.selected.searchURLs"\n' +
+    '                        md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                        md-item-text="item"\n' +
+    '                        md-selected-item-change="$ctrl.onServerUrlChanged()"\n' +
+    '                        md-search-text-change="$ctrl.onChanged()"\n' +
+    '                        md-delay="200"\n' +
+    '                        ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                        pip-clear-errors>\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">\n' +
+    '                <label>{{::\'OLD_PASSWORD\' | translate}}</label>\n' +
+    '                <input name="password" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors\n' +
+    '                       type="password" tabindex="4" ng-model="$ctrl.config.data.password"\n' +
+    '                       required minlength="6"/>\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)"\n' +
+    '                     class="md-input-error"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label>{{::\'NEW_PASSWORD_SET\' | translate}}</label>\n' +
+    '                <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors type="password" tabindex="4" ng-model="$ctrl.config.data.passwordNew"\n' +
+    '                    required minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password" />\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.passwordNew.$pristine"> {{::\'ERROR_WRONG_PASSWORD\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm">\n' +
+    '                <label>{{::\'NEW_PASSWORD_CONFIRM\' | translate}}</label>\n' +
+    '                <input name="passwordConfirm" type="password" tabindex="4" required minlength="6" ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                    pip-clear-errors \n' +
+    '                    pip-compare-password-match compare-to2="$ctrl.config.data.passwordNew" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"\n' +
+    '                />\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false">\n' +
+    '                    <div ng-message="ERROR_compareTo"> {{::\'PASSWORD_MATCH\' | translate}} </div>\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4255,7 +4540,23 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('post_signup/PostSignup.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-post-signup-panel pip-party="$ctrl.$party"></pip-post-signup-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" type="submit" ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">{{ ::\'CONTINUE\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-post-signup-panel pip-party="$ctrl.$party">\n' +
+    '        </pip-post-signup-panel>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" type="submit"\n' +
+    '                       ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">\n' +
+    '                {{ ::\'CONTINUE\' | translate }}\n' +
+    '            </md-button>\n' +
+    '\n' +
+    '            <md-button ng-show="$ctrl.transaction.busy()" class="md-warn"\n' +
+    '                       ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4267,7 +4568,23 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('post_signup/PostSignupDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-post-signup-panel pip-party="$ctrl.$party"></pip-post-signup-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">{{ ::\'CONTINUE\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></md-dialog-actions></md-dialog>');
+    '<md-dialog class="pip-entry lp0 rp0">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-post-signup-panel pip-party="$ctrl.$party">\n' +
+    '        </pip-post-signup-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '    <md-dialog-actions class="layout-row layout-align-end-center">\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" class="md-accent"\n' +
+    '                   ng-click="$ctrl.onPostSignupSubmit()" aria-label="CONTINUE">\n' +
+    '            {{ ::\'CONTINUE\' | translate }}\n' +
+    '        </md-button>\n' +
+    '\n' +
+    '        <md-button ng-show="$ctrl.transaction.busy()" class="md-warn"\n' +
+    '                   ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4279,8 +4596,90 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('post_signup/PostSignupPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 class="text-overflow" ng-if="!$ctrl.hideObject.title">{{ \'POST_SIGNUP_TITLE\' | translate }}</h2><p class="bm0 line-height-string" ng-if="!$ctrl.hideObject.successTitle">{{ \'POST_SIGNUP_TEXT_1\' | translate }}</p><p class="line-height-string m0" ng-if="!$ctrl.hideObject.subTitle">{{ \'POST_SIGNUP_TEXT_2\' | translate }}</p><form name="form" novalidate=""><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8" md-auto-hide="false"><div ng-message="ERROR_1000">{{::\'ERROR_1000\' | translate}}</div><div ng-message="ERROR_1110">{{::\'ERROR_1110\' | translate}}</div><div ng-message="ERROR_1111">{{::\'ERROR_1111\' | translate}}</div><div ng-message="ERROR_1112">{{::\'ERROR_1112\' | translate}}</div><div ng-message="ERROR_1002">{{::\'ERROR_1002\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="pip-ref-item"><pip-avatar-edit ng-disabled="$ctrl.transaction.busy()" ng-if="$ctrl.config.enableAvatar" pip-reset="false" pip-party-id="$ctrl.config.data.id" pip-created="$ctrl.onPictureCreated($event)" pip-changed="$ctrl.onPictureChanged($control, $event)" class="rm16 flex-fixed"></pip-avatar-edit><div class="pip-content"><p class="pip-title">{{ $ctrl.config.data.name }}</p><p class="pip-subtitle">{{ $ctrl.config.data.email }}</p></div></div><md-input-container class="pip-no-hint bp4"><label>{{ \'HINT_ABOUT\' | translate }}</label> <textarea ng-model="$ctrl.config.data.about" ng-initial="" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="">\n' +
-    '                        </textarea></md-input-container><div class="tm2"><p class="text-caption bm0">{{ \'GENDER\' | translate }}</p><md-select class="w-stretch tm0 tp0 bp8" ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.gender" label="{{\'GENDER\' | translate}}" ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors=""><md-option ng-value="opt.id" ng-repeat="opt in $ctrl.genders track by opt.id">{{ opt.name }}</md-option></md-select></div><div class="tm2"><p class="text-caption bm0">{{ ::\'BIRTHDAY\' | translate }}</p><pip-date ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.birthday" pip-time-mode="past" pip-clear-errors="" time-mode="past"></pip-date></div><md-input-container><label>{{ ::\'LANGUAGE\' | translate }}</label><md-select class="w-stretch tm0 tp0 bp16" ng-disabled="$ctrl.transaction.busy()" ng-model="$ctrl.config.data.language" ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors=""><md-option ng-value="opt.id" ng-repeat="opt in $ctrl.languages track by opt.id">{{ opt.name }}</md-option></md-select></md-input-container></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    '\n' +
+    '        <h2 class="text-overflow" ng-if="!$ctrl.hideObject.title">\n' +
+    '            {{ \'POST_SIGNUP_TITLE\' | translate }}\n' +
+    '        </h2>\n' +
+    '\n' +
+    '        <p class="bm0 line-height-string" ng-if="!$ctrl.hideObject.successTitle">\n' +
+    '            {{ \'POST_SIGNUP_TEXT_1\' | translate }}\n' +
+    '        </p>\n' +
+    '\n' +
+    '        <p class="line-height-string m0" ng-if="!$ctrl.hideObject.subTitle">\n' +
+    '            {{ \'POST_SIGNUP_TEXT_2\' | translate }}\n' +
+    '        </p>\n' +
+    '\n' +
+    '        <form name="form" novalidate>\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_1000">{{::\'ERROR_1000\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_1110">{{::\'ERROR_1110\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_1111">{{::\'ERROR_1111\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_1112">{{::\'ERROR_1112\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_1002">{{::\'ERROR_1002\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="pip-ref-item">\n' +
+    '                <pip-avatar-edit ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                                 ng-if="$ctrl.config.enableAvatar"\n' +
+    '                                 pip-reset="false" pip-party-id="$ctrl.config.data.id"\n' +
+    '                                 pip-created="$ctrl.onPictureCreated($event)"\n' +
+    '                                 pip-changed="$ctrl.onPictureChanged($control, $event)"\n' +
+    '                                 class="rm16 flex-fixed">\n' +
+    '                </pip-avatar-edit>\n' +
+    '\n' +
+    '                <div class="pip-content">\n' +
+    '                    <p class="pip-title">{{ $ctrl.config.data.name }}</p>\n' +
+    '                    <p class="pip-subtitle">{{ $ctrl.config.data.email }}</p>\n' +
+    '                </div>\n' +
+    '\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint bp4">\n' +
+    '                <label>{{ \'HINT_ABOUT\' | translate }}</label>\n' +
+    '                        <textarea ng-model="$ctrl.config.data.about"  ng-initial ng-disabled="$ctrl.transaction.busy()" pip-clear-errors>\n' +
+    '                        </textarea>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <div class="tm2">\n' +
+    '                <p class="text-caption bm0">{{ \'GENDER\' | translate }}</p>\n' +
+    '                <md-select class="w-stretch tm0 tp0 bp8" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                           ng-model="$ctrl.config.data.gender" label="{{\'GENDER\' | translate}}"\n' +
+    '                           ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors>\n' +
+    '                    <md-option ng-value="opt.id" ng-repeat="opt in $ctrl.genders track by opt.id">\n' +
+    '                        {{ opt.name }}\n' +
+    '                    </md-option>\n' +
+    '                </md-select>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="tm2">\n' +
+    '                <p class="text-caption bm0">{{ ::\'BIRTHDAY\' | translate }}</p>\n' +
+    '                <pip-date ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                          ng-model="$ctrl.config.data.birthday"\n' +
+    '                          pip-time-mode="past"\n' +
+    '                          pip-clear-errors time-mode="past">\n' +
+    '                </pip-date>\n' +
+    '            </div>\n' +
+    '           <md-input-container>\n' +
+    '               <label>{{ ::\'LANGUAGE\' | translate }}</label>\n' +
+    '               <md-select class="w-stretch tm0 tp0  bp16" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                          ng-model="$ctrl.config.data.language"\n' +
+    '                          ng-change="$ctrl.onStatusChange($ctrl.config.data)" pip-clear-errors>\n' +
+    '                   <md-option ng-value="opt.id" ng-repeat="opt in $ctrl.languages track by opt.id">\n' +
+    '                       {{ opt.name }}\n' +
+    '                   </md-option>\n' +
+    '               </md-select>\n' +
+    '           </md-input-container>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4292,7 +4691,27 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('recover_password/RecoverPassword.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-recover-password-panel class="scroll-y"></pip-recover-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" ng-click="$ctrl.onRecover()" aria-label="RECOVER_PWD_RECOVER" type="submit" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0">{{ ::\'RECOVER_PWD_RECOVER\' | translate }}</md-button><md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-recover-password-panel class="scroll-y">\n' +
+    '        </pip-recover-password-panel>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" class="md-accent" ng-click="$ctrl.onRecover()"\n' +
+    '                       aria-label="RECOVER_PWD_RECOVER" type="submit"\n' +
+    '                       ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0">\n' +
+    '                {{ ::\'RECOVER_PWD_RECOVER\' | translate }}\n' +
+    '            </md-button>\n' +
+    '\n' +
+    '            <md-button ng-show="$ctrl.transaction.busy()" class="md-warn" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4304,7 +4723,29 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('recover_password/RecoverPasswordDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-recover-password-panel></pip-recover-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctlr.transaction.busy()" ng-click="$ctlr.goBack()" class="rm8" aria-label="CANCEL">{{::\'CANCEL\' | translate}}</md-button><md-button ng-hide="$ctlr.transaction.busy()" class="md-accent" ng-click="$ctlr.onRecover()" aria-label="RECOVER_PWD_RECOVER" ng-disabled="($$ctlr.config.form.$pristine && !$ctlr.config.data.login) || $ctlr.config.data.login== undefined || || $ctlr.config.data.serverUrl.length == 0 || $ctlr.config.data.login.length == 0">{{::\'RECOVER_PWD_RECOVER\' | translate}}</md-button><md-button ng-show="$ctlr.transaction.busy()" class="md-warn" ng-click="$ctlr.transaction.abort()" aria-label="ABORT">{{::\'CANCEL\' | translate}}</md-button></md-dialog-actions></md-dialog>');
+    '<md-dialog class="pip-entry lp0 rp0">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-recover-password-panel>\n' +
+    '        </pip-recover-password-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '\n' +
+    '    <md-dialog-actions class="layout-row layout-align-end-center">\n' +
+    '        <md-button ng-hide="$ctlr.transaction.busy()" ng-click="$ctlr.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '            {{::\'CANCEL\' | translate}}\n' +
+    '        </md-button>\n' +
+    '\n' +
+    '        <md-button ng-hide="$ctlr.transaction.busy()" class="md-accent" ng-click="$ctlr.onRecover()"\n' +
+    '                   aria-label="RECOVER_PWD_RECOVER"\n' +
+    '                   ng-disabled="($$ctlr.config.form.$pristine && !$ctlr.config.data.login) || $ctlr.config.data.login== undefined ||\n' +
+    '                           || $ctlr.config.data.serverUrl.length == 0 || $ctlr.config.data.login.length == 0">\n' +
+    '            {{::\'RECOVER_PWD_RECOVER\' | translate}}\n' +
+    '        </md-button>\n' +
+    '\n' +
+    '        <md-button ng-show="$ctlr.transaction.busy()" class="md-warn" ng-click="$ctlr.transaction.abort()" aria-label="ABORT">\n' +
+    '            {{::\'CANCEL\' | translate}}\n' +
+    '        </md-button>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4316,7 +4757,82 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('recover_password/RecoverPasswordPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.title">{{ \'RECOVER_PWD_TITLE\' | translate }}</h2><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && !$ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_LOGIN\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && $ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_EMAIL\' | translate }}</p><p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle2">{{ \'RECOVER_PWD_TEXT_2\' | translate }}</p><form name="form" novalidate="" autocomplete="off"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{ ::\'ENTRY_CHANGE_SERVER\' | translate }}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" aria-label="URL" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label> <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label> <input name="login" type="text" aria-label="LOGIN" ng-model="$ctrl.config.data.login" required="" step="any" pip-clear-errors="" ng-disabled="$ctrl.transaction.busy()" tabindex="2"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">{{::\'HINT_LOGIN\' | translate}}</div><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div><div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div></div></md-input-container></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    '\n' +
+    '        <h2 ng-if="!$ctrl.hideObject.title">{{ \'RECOVER_PWD_TITLE\' | translate }}</h2>\n' +
+    '\n' +
+    '        <p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && !$ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_LOGIN\' | translate }} </p>\n' +
+    '        <p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle1 && $ctrl.config.useEmailAsLogin">{{ \'RECOVER_PWD_TEXT_1_EMAIL\' | translate }} </p>\n' +
+    '\n' +
+    '        <p class="text-primary tm0 bm16" ng-if="!$ctrl.hideObject.subTitle2">{{ \'RECOVER_PWD_TEXT_2\' | translate }}</p>\n' +
+    '\n' +
+    '        <form name="form" novalidate autocomplete="off">\n' +
+    '            \n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="bp16" >\n' +
+    '                <a  ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" \n' +
+    '                    ng-click="$ctrl.config.showServerUrl = true" href="">\n' +
+    '                    {{ ::\'ENTRY_CHANGE_SERVER\' | translate }}\n' +
+    '                </a>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete\n' +
+    '                        ng-initial autofocus tabindex="1"\n' +
+    '                        class="pip-combobox w-stretch bm8"\n' +
+    '                        name="server" aria-label="URL"\n' +
+    '                        ng-enabled="!$ctrl.transaction.busy()"\n' +
+    '                        placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}"\n' +
+    '                        md-no-cache="true"\n' +
+    '                        md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                        md-search-text="$ctrl.config.selected.searchURLs"\n' +
+    '                        md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                        md-item-text="item"\n' +
+    '                        md-selected-item-change="$ctrl.onServerUrlChanged()"\n' +
+    '                        md-search-text-change="$ctrl.onChanged()"\n' +
+    '                        md-delay="200"\n' +
+    '                        ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                        pip-clear-errors>\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '            <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">\n' +
+    '                <label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label>\n' +
+    '                <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label>\n' +
+    '                <input name="login" type="text" aria-label="LOGIN"\n' +
+    '                       ng-model="$ctrl.config.data.login"\n' +
+    '                       required step="any" pip-clear-errors\n' +
+    '                       ng-disabled="$ctrl.transaction.busy()" tabindex="2"/>\n' +
+    '\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_LOGIN\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_EMAIL\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)"\n' +
+    '                     class="md-input-error"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '        </form>\n' +
+    '\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4328,7 +4844,26 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('reset_password/ResetPassword.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-reset-password-panel class="scroll-y"></pip-reset-password-panel><div class="pip-footer"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onReset()" aria-label="ENTRY_RESET_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.resetCode.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_RESET_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-reset-password-panel class="scroll-y">\n' +
+    '        </pip-reset-password-panel>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.goBack()" class="rm8" aria-label="CANCEL">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onReset()" aria-label="ENTRY_RESET_PASSWORD"\n' +
+    '                       ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.resetCode.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                       class="md-accent" type="submit">\n' +
+    '                {{ ::\'ENTRY_RESET_PASSWORD\' | translate }}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{ ::\'CANCEL\' | translate }}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4340,7 +4875,27 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('reset_password/ResetPasswordDialog.html',
-    '<md-dialog class="pip-entry lp0 rp0"><md-dialog-content><pip-reset-password-panel></pip-reset-password-panel></md-dialog-content><md-dialog-actions class="layout-row layout-align-end-center"><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onCancel()" class="rm8" aria-label="CANCEL">{{ ::\'CANCEL\' | translate }}</md-button><md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onReset()" aria-label="ENTRY_RESET_PASSWORD" ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.login.length == 0 || $ctrl.config.data.resetCode.length == 0 || $ctrl.config.data.password.length < 6" class="md-accent" type="submit">{{ ::\'ENTRY_RESET_PASSWORD\' | translate }}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{ ::\'CANCEL\' | translate }}</md-button></md-dialog-actions></md-dialog>');
+    '<md-dialog class="pip-entry  lp0 rp0">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-reset-password-panel>\n' +
+    '        </pip-reset-password-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '\n' +
+    '    <md-dialog-actions class="layout-row layout-align-end-center">\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onCancel()" class="rm8" aria-label="CANCEL">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button ng-hide="$ctrl.transaction.busy()" ng-click="$ctrl.onReset()" aria-label="ENTRY_RESET_PASSWORD"\n' +
+    '                   ng-disabled="($ctrl.config.form.$pristine && !$ctrl.config.data.login) || $ctrl.config.data.serverUrl.length == 0 ||\n' +
+    '                       $ctrl.config.data.login.length == 0 || $ctrl.config.data.resetCode.length == 0 || $ctrl.config.data.password.length < 6"\n' +
+    '                   class="md-accent" type="submit">\n' +
+    '            {{ ::\'ENTRY_RESET_PASSWORD\' | translate }}\n' +
+    '        </md-button>\n' +
+    '        <md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '            {{ ::\'CANCEL\' | translate }}\n' +
+    '        </md-button>\n' +
+    '    </md-dialog-actions>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4352,7 +4907,119 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('reset_password/ResetPasswordPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && $ctrl.showServerError && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 ng-if="!$ctrl.hideObject.title">{{::\'RESET_PWD_PASSWORD\' | translate}}</h2><p class="title-padding bm16" ng-if="!$ctrl.hideObject.resetSubTitle && !$ctrl.config.useEmailAsLogin">{{::\'RESET_PWD_TEXT_LOGIN\' | translate}}</p><p class="title-padding bm16" ng-if="!$ctrl.hideObject.resetSubTitle && $ctrl.config.useEmailAsLogin">{{::\'RESET_PWD_TEXT_EMAIL\' | translate}}</p><form name="form" novalidate="" autocomplete="off"><input name="code" style="display:none"> <input name="resetCode" style="display:none"> <input name="password" style="display:none"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{::\'ENTRY_CHANGE_SERVER\' | translate}}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" aria-label="URL" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span></md-autocomplete></div><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label> <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label> <input name="login" type="login" ng-model="$ctrl.config.data.login" required="" step="any" aria-label="LOGIN" pip-clear-errors="" ng-disabled="$ctrl.transaction.busy()" tabindex="2"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">{{::\'HINT_LOGIN\' | translate}}</div><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div></div></md-input-container><md-input-container class="pip-no-hint"><label>{{::\'ENTRY_RESET_CODE\' | translate}}</label> <input name="resetCode" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" aria-label="CODE" ng-model="$ctrl.config.data.resetCode" required="" tabindex="3" pip-clear-errors=""><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.resetCode).hint && !$ctrl.hideObject.hint">{{::\'ENTRY_RESET_CODE\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.resetCode)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_CODE_WRONG\' | translate }}</div><div ng-message="ERROR_WRONG_CODE">{{::\'ERROR_WRONG_CODE\' | translate}}</div></div></md-input-container><md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;"><label>{{::\'NEW_PASSWORD_SET\' | translate}}</label> <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" autocomplete="off" type="password" tabindex="4" ng-model="$ctrl.config.data.password" required="" minlength="6" aria-label="password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew)" class="md-input-error" md-auto-hide="false"><div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div></div></md-input-container></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy()  && $ctrl.showServerError  && !$ctrl.hideObject.progress" md-mode="indeterminate"\n' +
+    '                            class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    ' \n' +
+    '        <h2 ng-if="!$ctrl.hideObject.title">{{::\'RESET_PWD_PASSWORD\' | translate}}</h2>\n' +
+    '\n' +
+    '        <p class="title-padding bm16" ng-if="!$ctrl.hideObject.resetSubTitle && !$ctrl.config.useEmailAsLogin">\n' +
+    '            {{::\'RESET_PWD_TEXT_LOGIN\' | translate}}\n' +
+    '        </p>\n' +
+    '\n' +
+    '        <p class="title-padding bm16" ng-if="!$ctrl.hideObject.resetSubTitle && $ctrl.config.useEmailAsLogin">\n' +
+    '            {{::\'RESET_PWD_TEXT_EMAIL\' | translate}}\n' +
+    '        </p>\n' +
+    '\n' +
+    '        <form name="form" novalidate autocomplete="off">\n' +
+    '\n' +
+    '                <input name="code" style="display:none">\n' +
+    '                <input name="resetCode" style="display:none">\n' +
+    '                <input name="password" style="display:none">\n' +
+    '\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="bp16" >\n' +
+    '                <a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" \n' +
+    '                    ng-click="$ctrl.config.showServerUrl = true" href="">\n' +
+    '                    {{::\'ENTRY_CHANGE_SERVER\' | translate}}\n' +
+    '                </a>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete\n' +
+    '                        ng-initial autofocus tabindex="1"\n' +
+    '                        class="pip-combobox w-stretch bm8"\n' +
+    '                        name="server" aria-label="URL"\n' +
+    '                        ng-enabled="!$ctrl.transaction.busy()"\n' +
+    '                        placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}"\n' +
+    '                        md-no-cache="true"\n' +
+    '                        md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                        md-search-text="$ctrl.config.selected.searchURLs"\n' +
+    '                        md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                        md-item-text="item"\n' +
+    '                        md-selected-item-change="$ctrl.onServerUrlChanged()"\n' +
+    '                        md-search-text-change="$ctrl.onChanged()"\n' +
+    '                        md-delay="200"\n' +
+    '                        ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                        pip-clear-errors>\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{ item }}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">\n' +
+    '                <label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label>\n' +
+    '                <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label>\n' +
+    '                <input name="login" type="login" ng-model="$ctrl.config.data.login" required step="any" aria-label="LOGIN" pip-clear-errors\n' +
+    '                       ng-disabled="$ctrl.transaction.busy()" tabindex="2"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_LOGIN\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_EMAIL\' | translate}}\n' +
+    '                </div>                \n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" class="md-input-error"  md-auto-hide="false">\n' +
+    '\n' +
+    '                    <div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div>\n' +
+    '                    <div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint">\n' +
+    '                <label>{{::\'ENTRY_RESET_CODE\' | translate}}</label>\n' +
+    '                <input name="resetCode" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                    autocomplete="off" aria-label="CODE"\n' +
+    '                    ng-model="$ctrl.config.data.resetCode" required tabindex="3" pip-clear-errors/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.resetCode).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'ENTRY_RESET_CODE\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.resetCode)" class="md-input-error"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'ERROR_CODE_WRONG\' | translate }}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_CODE">{{::\'ERROR_WRONG_CODE\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="pip-no-hint" style="padding-bottom: 4px!important;">\n' +
+    '                <label>{{::\'NEW_PASSWORD_SET\' | translate}}</label>\n' +
+    '                <input name="passwordNew" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors autocomplete="off"\n' +
+    '                       type="password" tabindex="4" ng-model="$ctrl.config.data.password"\n' +
+    '                       required minlength="6" aria-label="password" />\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordNew)"\n' +
+    '                     class="md-input-error"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="minlength">{{::\'MINLENGTH_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4364,7 +5031,12 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signin/Signin.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-signin-panel pipfixedserverurl="$ctrl.fixedServerUrl" class="scroll-y"></pip-signin-panel></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-signin-panel pipfixedServerUrl="$ctrl.fixedServerUrl" class="scroll-y">\n' +
+    '        </pip-signin-panel>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4376,7 +5048,13 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signin/SigninDialog.html',
-    '<md-dialog class="pip-entry"><md-dialog-content><pip-signin-panel pip-goto-signup-dialog="$ctrl.pipGotoSignupDialog" pip-goto-recover-password-dialog="$ctrl.pipGotoRecoverPasswordDialog"></pip-signin-panel></md-dialog-content></md-dialog>');
+    '<md-dialog class="pip-entry">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-signin-panel pip-goto-signup-dialog="$ctrl.pipGotoSignupDialog"\n' +
+    '                          pip-goto-recover-password-dialog="$ctrl.pipGotoRecoverPasswordDialog">\n' +
+    '        </pip-signin-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4388,7 +5066,154 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signin/SigninPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 pip-translate="SIGNIN_TITLE" ng-if="!$ctrl.hideObject.title"></h2><form name="form" novalidate=""><input type="password" style="display:none"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_ACCOUNT_LOCKED">{{::\'ERROR_ACCOUNT_LOCKED\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="" id="link-server-url" pip-test="link-server-url">{{::\'ENTRY_CHANGE_SERVER\' | translate}}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" pip-test="autocomplete-server"><span md-highlight-text="$ctrl.config.selected.searchURLs">{{item}}</span></md-autocomplete></div><md-input-container class="display bp4"><label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label> <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label> <input name="login" ng-model="$ctrl.config.data.login" required="" step="any" ng-keypress="$ctrl.onEnter($event)" aria-label="LOGIN" pip-clear-errors="" ng-disabled="$ctrl.transaction.busy()" tabindex="2" pip-test="input-login"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">{{::\'HINT_LOGIN\' | translate}}</div><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div><div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div></div></md-input-container><md-input-container class="display bp4"><label>{{::\'PASSWORD\' | translate}}</label> <input name="password" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" type="password" tabindex="3" ng-model="$ctrl.config.data.password" ng-keypress="$ctrl.onEnter($event)" required="" minlength="6" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">{{::\'SIGNIN_HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)" md-auto-hide="false"><div ng-message="required">{{::\'SIGNIN_HINT_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div></div></md-input-container><a href="" class="display bm16" ng-if="!$ctrl.hideObject.forgotPassword" ng-click="$ctrl.gotoRecoverPassword()" tabindex="4">{{::\'SIGNIN_FORGOT_PASSWORD\' | translate}}</a><md-checkbox ng-disabled="$ctrl.transaction.busy()" ng-if="!$ctrl.hideObject.forgotPassword" md-no-ink="" class="lm0" aria-label="{{\'SIGNIN_REMEMBER\' | translate}}" tabindex="5" ng-model="$ctrl.config.data.remember" pip-test-checkbox="remember"><label class="label-check">{{::\'SIGNIN_REMEMBER\' | translate}}</label></md-checkbox><div style="height: 36px; overflow: hidden;"><md-button ng-if="!$ctrl.transaction.busy()" ng-click="$ctrl.onSignin()" aria-label="SIGNIN" class="md-raised md-accent w-stretch m0" tabindex="6" type="submit" xxng-disabled="($ctrl.config.data.login == undefined) || $ctrl.config.data.login.length == 0 || $ctrl.config.data.serverUrl == \'\' || $ctrl.config.data.serverUrl == undefined || $ctrl.config.data.serverUrl.length == 0 || ($ctrl.config.data.password == undefined)" pip-test="button-signin">{{::\'SIGNIN_TITLE\' | translate}}</md-button><md-button ng-if="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn m0 w-stretch" tabindex="5" aria-label="ABORT" pip-test="button-cancel">{{::\'CANCEL\' | translate}}</md-button></div><div class="tm24 layout-row" ng-if="!$ctrl.config.adminOnly && $ctrl.pipMedia(\'gt-xs\') && !$ctrl.hideObject.signup"><p class="m0 text-small">{{::\'SIGNIN_NOT_MEMBER\' | translate}} <a href="" ng-click="$ctrl.gotoSignup()" tabindex="6">{{::\'SIGNIN_SIGNUP_HERE\' | translate}}</a></p></div><div class="tm24 divider-top text-signup" ng-if="!$ctrl.config.adminOnly && $ctrl.pipMedia(\'xs\') && !$ctrl.hideObject.signup"><div class="h48 layout-row layout-align-center-end"><p class="m0 text-small">{{::\'SIGNIN_NOT_MEMBER\' | translate}}</p></div><div class="h48 layout-row layout-align-center-start"><a class="text-small" ng-click="$ctrl.gotoSignup()" href="" tabindex="6">{{::\'SIGNIN_SIGNUP_HERE\' | translate}}</a></div></div></form></div></div>');
+    '<div class="pip-body">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    '\n' +
+    '        <h2 pip-translate="SIGNIN_TITLE" ng-if="!$ctrl.hideObject.title"></h2>\n' +
+    '\n' +
+    '        <form name="form" novalidate>\n' +
+    '                <input type="password" style="display:none">\n' +
+    '\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error"  md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_ACCOUNT_LOCKED">{{::\'ERROR_ACCOUNT_LOCKED\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="bp16" >\n' +
+    '                <a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server"\n' +
+    '                ng-click="$ctrl.config.showServerUrl = true" href=""\n' +
+    '                id="link-server-url"\n' +
+    '                pip-test="link-server-url">\n' +
+    '                    {{::\'ENTRY_CHANGE_SERVER\' | translate}}\n' +
+    '                </a>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete\n' +
+    '                        ng-initial autofocus tabindex="1"\n' +
+    '                        class="pip-combobox w-stretch bm8"\n' +
+    '                        name="server"\n' +
+    '                        placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}"\n' +
+    '                        md-no-cache="true"\n' +
+    '                        md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                        md-search-text="$ctrl.config.selected.searchURLs"\n' +
+    '                        md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                        md-item-text="item"\n' +
+    '                        md-selected-item-change="$ctrl.onServerUrlChanged()"\n' +
+    '                        md-search-text-change="$ctrl.onChanged()"\n' +
+    '                        md-delay="200"\n' +
+    '                        ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                        ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                        pip-clear-errors\n' +
+    '                        pip-test="autocomplete-server">\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{item}}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</label>\n' +
+    '                <label ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</label>\n' +
+    '                <input name="login" ng-model="$ctrl.config.data.login" required step="any"\n' +
+    '                       ng-keypress="$ctrl.onEnter($event)" aria-label="LOGIN"\n' +
+    '                       pip-clear-errors\n' +
+    '                       ng-disabled="$ctrl.transaction.busy()" tabindex="2"\n' +
+    '                       pip-test="input-login"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && !$ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_LOGIN\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login).hint && !$ctrl.hideObject.hint && $ctrl.config.useEmailAsLogin">\n' +
+    '                    {{::\'HINT_EMAIL\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.login)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'ERROR_LOGIN_INVALID\' | translate }}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_LOGIN_NOT_FOUND">{{::\'ERROR_LOGIN_NOT_FOUND\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label>{{::\'PASSWORD\' | translate}}</label>\n' +
+    '                <input name="password" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors\n' +
+    '                       type="password" tabindex="3" ng-model="$ctrl.config.data.password"\n' +
+    '                       ng-keypress="$ctrl.onEnter($event)"\n' +
+    '                       required minlength="6"\n' +
+    '                       pip-test="input-password"/>\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'SIGNIN_HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)"  md-auto-hide="false">\n' +
+    '                    <div ng-message="required">{{::\'SIGNIN_HINT_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '            <a href="" class="display bm16"\n' +
+    '               ng-if="!$ctrl.hideObject.forgotPassword"\n' +
+    '               ng-click="$ctrl.gotoRecoverPassword()"\n' +
+    '               tabindex="4">\n' +
+    '                {{::\'SIGNIN_FORGOT_PASSWORD\' | translate}}\n' +
+    '            </a>\n' +
+    '\n' +
+    '            <md-checkbox ng-disabled="$ctrl.transaction.busy()" \n' +
+    '                         ng-if="!$ctrl.hideObject.forgotPassword"\n' +
+    '                         md-no-ink class="lm0"\n' +
+    '                         aria-label="{{\'SIGNIN_REMEMBER\' | translate}}" tabindex="5"\n' +
+    '                         ng-model="$ctrl.config.data.remember"\n' +
+    '                         pip-test-checkbox="remember">\n' +
+    '                <label class="label-check">{{::\'SIGNIN_REMEMBER\' | translate}}</label>\n' +
+    '            </md-checkbox>\n' +
+    '\n' +
+    '            <div style="height: 36px; overflow: hidden;">\n' +
+    '                <md-button ng-if="!$ctrl.transaction.busy()" ng-click="$ctrl.onSignin()" aria-label="SIGNIN"\n' +
+    '                           class="md-raised md-accent w-stretch m0" tabindex="6" type="submit"\n' +
+    '                           ng-disabled="($ctrl.config.data.login == undefined) || $ctrl.config.data.login.length == 0 || $ctrl.config.data.serverUrl == \'\' ||\n' +
+    '                                   $ctrl.config.data.serverUrl == undefined || $ctrl.config.data.serverUrl.length == 0 || ($ctrl.config.data.password == undefined)"\n' +
+    '                           pip-test="button-signin">\n' +
+    '                    {{::\'SIGNIN_TITLE\' | translate}}\n' +
+    '                </md-button>\n' +
+    '                <md-button ng-if="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn m0 w-stretch"\n' +
+    '                           tabindex="5" aria-label="ABORT" \n' +
+    '                           pip-test="button-cancel">\n' +
+    '                    {{::\'CANCEL\' | translate}}\n' +
+    '                </md-button>\n' +
+    '            </div>\n' +
+    '            <div class="tm24 layout-row" ng-if="!$ctrl.config.adminOnly && $ctrl.pipMedia(\'gt-xs\') && !$ctrl.hideObject.signup">\n' +
+    '                <p class="m0 text-small"> <!--  <p class="a-question-text">  -->\n' +
+    '                    {{::\'SIGNIN_NOT_MEMBER\' | translate}}\n' +
+    '                    <a href=""\n' +
+    '                       ng-click="$ctrl.gotoSignup()"\n' +
+    '                       tabindex="6">\n' +
+    '                        {{::\'SIGNIN_SIGNUP_HERE\' | translate}}\n' +
+    '                    </a>\n' +
+    '                </p>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div class="tm24 divider-top text-signup" \n' +
+    '                 ng-if="!$ctrl.config.adminOnly && $ctrl.pipMedia(\'xs\') && !$ctrl.hideObject.signup">\n' +
+    '                <div class="h48 layout-row layout-align-center-end">\n' +
+    '                    <p class="m0 text-small">{{::\'SIGNIN_NOT_MEMBER\' | translate}}</p>\n' +
+    '                </div>\n' +
+    '                <div class="h48 layout-row layout-align-center-start">\n' +
+    '                    <a class="text-small" ng-click="$ctrl.gotoSignup()" href="" tabindex="6">\n' +
+    '                        {{::\'SIGNIN_SIGNUP_HERE\' | translate}}\n' +
+    '                    </a>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    '');
 }]);
 })();
 
@@ -4400,7 +5225,13 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signup/Signup.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><pip-signup-panel class="scroll-y"></pip-signup-panel></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <pip-signup-panel class="scroll-y">\n' +
+    '        </pip-signup-panel>\n' +
+    '    </pip-card>\n' +
+    '</div>\n' +
+    '');
 }]);
 })();
 
@@ -4412,7 +5243,12 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signup/SignupDialog.html',
-    '<md-dialog class="pip-entry"><md-dialog-content><pip-signup-panel pip-goto-signin-dialog="$ctrl.pipGotoSigninDialog" pip-post-signup="$ctrl.pipPostSignup"></pip-signup-panel></md-dialog-content></md-dialog>');
+    '<md-dialog class="pip-entry">\n' +
+    '    <md-dialog-content>\n' +
+    '        <pip-signup-panel pip-goto-signin-dialog="$ctrl.pipGotoSigninDialog"\n' +
+    '                          pip-post-signup="$ctrl.pipPostSignup"></pip-signup-panel>\n' +
+    '    </md-dialog-content>\n' +
+    '</md-dialog>');
 }]);
 })();
 
@@ -4424,7 +5260,194 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('signup/SignupPanel.html',
-    '<div class="pip-body"><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2 pip-translate="SIGNUP_TITLE" ng-if="!$ctrl.hideObject.title"></h2><form name="form" novalidate="" autocomplete="off"><input type="email" style="display:none"> <input type="login" style="display:none"> <input type="password" style="display:none"><div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div ng-if="$ctrl.error" class="text-error bm8 color-error" md-auto-hide="false">{{::\'ERROR_SERVER\' | translate}}</div><div class="bp16"><a ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" ng-click="$ctrl.config.showServerUrl = true" href="">{{::\'ENTRY_CHANGE_SERVER\' | translate}}</a></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8"><md-autocomplete ng-initial="" autofocus="" tabindex="1" class="pip-combobox w-stretch bm8" name="server" ng-enabled="!$ctrl.transaction.busy()" placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl" md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)" md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors=""><span md-highlight-text="$ctrl.config.selected.searchURLs">{{item}}</span></md-autocomplete></div><md-input-container class="display bp4"><label>{{::\'FULLNAME\' | translate}}</label> <input name="signupFullName" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" ng-model="$ctrl.config.data.name" ng-init="$ctrl.config.data.name = \'\'" required="" tabindex="2" pip-clear-errors="" ng-keypress="$ctrl.onEnter($event)"><div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupFullName).hint && !$ctrl.hideObject.hint">{{ ::\'HINT_FULLNAME\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupFullName)" md-auto-hide="false"><div ng-message="required">{{ ::\'HINT_FULLNAME\' | translate}} {{::\'ERROR_FULLNAME_INVALID\' | translate }}</div><div ng-message="ERROR_NO_NAME">{{ ::\'ERROR_NO_NAME\' | translate }}</div></div></md-input-container><div ng-if="!$ctrl.config.useEmailAsLogin"><md-input-container class="display bp4"><label>{{ ::\'LOGIN\' | translate}}</label> <input name="signupLogin" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" ng-model="$ctrl.config.data.login" ng-init="$ctrl.config.data.login = \'\'" required="" tabindex="2" pip-clear-errors="" ng-keypress="$ctrl.onEnter($event)"><div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupLogin).hint && !$ctrl.hideObject.hint">{{::\'HINT_LOGIN\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupLogin)" md-auto-hide="false"><div ng-message="required">{{::\'HINT_LOGIN\' | translate}} {{::\'ERROR_LOGIN_INVALID\' | translate }}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div></div></md-input-container><md-input-container class="display bp4"><label>{{::\'EMAIL\' | translate}}</label> <input name="userEmail" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" type="email" tabindex="3" ng-model="$ctrl.config.data.email" xxxxpip-email-unique="$ctrl.config.data.email" ng-change="$ctrl.onChangeEmail(\'userEmail\')" ng-model-options="{ delay: 500 }" required="" ng-keypress="$ctrl.onEnter($event)" xxxpip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail, true)" md-auto-hide="false"><div ng-message="emailUnique">{{::\'ERROR_ALREADY_EXIST\' | translate}}</div><div ng-message="required">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div><div ng-message="email">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div><div ng-message="ERROR_NO_EMAIL">{{::\'ERROR_NO_EMAIL\' | translate}}</div></div></md-input-container></div><div ng-if="$ctrl.config.useEmailAsLogin"><md-input-container class="display bp4" xxxmd-is-error="$ctrl.isError($ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1))"><label>{{::\'EMAIL\' | translate}}</label> <input name="userEmail1" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" type="email" tabindex="3" ng-model="$ctrl.config.data.email" ng-change="$ctrl.onChangeEmail(\'userEmail1\')" ng-model-options="{ delay: 500 }" required="" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_EMAIL\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1, true)" md-auto-hide="false"><div ng-message="required">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div><div ng-message="email">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div><div ng-message="emailUnique">{{::\'ERROR_ALREADY_EXIST_EMAIL\' | translate}}</div><div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN_EMAIL\' | translate}}</div><div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN_EMAIL\' | translate}}</div></div></md-input-container></div><md-input-container class="display bp4"><label>{{::\'PASSWORD_SET\' | translate}}</label> <input name="password" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" pip-clear-errors="" type="password" tabindex="4" ng-model="$ctrl.config.data.password" required="" minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)" md-auto-hide="false"><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.password.$pristine">{{::\'ERROR_WRONG_PASSWORD\' | translate}}</div></div></md-input-container><md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm"><label>{{::\'PASSWORD_CONFIRM\' | translate}}</label> <input name="passwordConfirm" type="password" tabindex="4" required="" minlength="6" ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" pip-compare-password-match="" compare-to2="$ctrl.config.data.password" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"><div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false"><div ng-message="ERROR_compareTo">{{::\'PASSWORD_MATCH\' | translate}}</div><div ng-message="required">{{::\'HINT_PASSWORD\' | translate}}</div><div ng-message="minlength">{{::\'HINT_PASSWORD\' | translate}}</div></div></md-input-container><p class="text-small-secondary" ng-if="!$ctrl.hideObject.agreement">{{::\'SIGNUP_TEXT_11\' | translate}} <a href="#/legal/privacy" target="_blank">{{::\'SIGNUP_PRIVACY\' | translate}}</a> {{::\'SIGNUP_TEXT_12\' | translate}} <a href="#/legal/services" target="_blank">{{::\'SIGNUP_SERVICES\' | translate}}</a></p><md-button ng-hide="$ctrl.transaction.busy()" class="md-raised m0 md-accent w-stretch" ng-click="$ctrl.onSignup()" aria-label="SIGNUP" type="submit" xxng-disabled="$ctrl.config.form.$invalid || ($ctrl.config.form.$pristine && !$ctrl.config.data.email) || $ctrl.config.data.serverUrl.length == 0 || $ctrl.config.data.email.length == 0 || ($ctrl.config.data.login.length == 0 && !$ctrl.config.useEmailAsLogin) || (!$ctrl.config.data.password) || (!$ctrl.config.data.name) || $ctrl.config.data.name.length == 0 || $ctrl.config.data.password.length == 0">{{::\'SIGNUP_TITLE\' | translate}}</md-button><md-button ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn m0 w-stretch" aria-label="ABORT">{{::\'CANCEL\' | translate}}</md-button><div class="tm24 layout-row" ng-if="$ctrl.pipMedia(\'gt-xs\') && !$ctrl.hideObject.signin"><p class="text-small m0">{{::\'SIGNUP_TEXT_2\' | translate}} <a href="" ng-click="$ctrl.gotoSignin()">{{::\'SIGNUP_SIGNIN_HERE\' | translate}}</a></p></div><div class="tm24 divider-top" ng-if="$ctrl.pipMedia(\'xs\') && !$ctrl.hideObject.signin" style="margin-right: -16px; margin-left: -16px; background-color: rgb(238, 238, 238);"><div class="h48 layout-row layout-align-center-end"><p class="bm0 text-small">{{::\'SIGNUP_TEXT_2\' | translate}}</p></div><div class="h48 layout-row layout-align-center-start"><p class="bm0 text-small"><a href="" ng-click="$ctrl.gotoSignin()">{{::\'SIGNUP_SIGNIN_HERE\' | translate}}</a></p></div></div></form></div></div>');
+    '<div class="pip-body ">\n' +
+    '    <div class="pip-content">\n' +
+    '        <md-progress-linear ng-show="$ctrl.transaction.busy() && !$ctrl.hideObject.progress" md-mode="indeterminate" class="pip-progress-top">\n' +
+    '        </md-progress-linear>\n' +
+    '\n' +
+    '        <h2 pip-translate="SIGNUP_TITLE" ng-if="!$ctrl.hideObject.title"></h2>\n' +
+    '\n' +
+    '        <form name="form" novalidate autocomplete="off">\n' +
+    '            <input type="email" style="display:none">\n' +
+    '            <input type="login" style="display:none">\n' +
+    '            <input type="password" style="display:none">\n' +
+    '\n' +
+    '            <div ng-messages="$ctrl.config.form.$serverError" class="text-error bm8 color-error" md-auto-hide="false">\n' +
+    '                <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                <div ng-message="ERROR_UNKNOWN">\n' +
+    '                    {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div ng-if="$ctrl.error" class="text-error bm8 color-error" md-auto-hide="false">\n' +
+    '                {{::\'ERROR_SERVER\' | translate}}\n' +
+    '            </div>\n' +
+    '            <div class="bp16" >\n' +
+    '                <a  ng-hide="$ctrl.config.showServerUrl || $ctrl.config.fixedServerUrl || $ctrl.hideObject.server" \n' +
+    '                    ng-click="$ctrl.config.showServerUrl = true"\n' +
+    '                    href="">\n' +
+    '                    {{::\'ENTRY_CHANGE_SERVER\' | translate}}\n' +
+    '                </a>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="bp8">\n' +
+    '                <md-autocomplete ng-initial autofocus tabindex="1" class="pip-combobox w-stretch bm8" name="server" ng-enabled="!$ctrl.transaction.busy()"\n' +
+    '                    placeholder="{{::\'ENTRY_SERVER_URL\' | translate}}" md-no-cache="true" md-selected-item="$ctrl.config.data.serverUrl"\n' +
+    '                    md-search-text="$ctrl.config.selected.searchURLs" md-items="item in $ctrl.config.getMatches($ctrl.config.selected.searchURLs)"\n' +
+    '                    md-item-text="item" md-selected-item-change="$ctrl.onServerUrlChanged()" \n' +
+    '                    md-search-text-change="$ctrl.onChanged()" md-delay="200" ng-model="$ctrl.config.data.serverUrl"\n' +
+    '                    ng-disabled="$ctrl.transaction.busy()" pip-clear-errors>\n' +
+    '                    <span md-highlight-text="$ctrl.config.selected.searchURLs">{{item}}</span>\n' +
+    '                </md-autocomplete>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label>{{::\'FULLNAME\' | translate}}</label>\n' +
+    '                <input name="signupFullName" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" ng-model="$ctrl.config.data.name"\n' +
+    '                    ng-init="$ctrl.config.data.name = \'\'" required tabindex="2" pip-clear-errors ng-keypress="$ctrl.onEnter($event)">\n' +
+    '\n' +
+    '                <div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupFullName).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{ ::\'HINT_FULLNAME\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupFullName)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required">\n' +
+    '                        {{ ::\'HINT_FULLNAME\' | translate}} {{::\'ERROR_FULLNAME_INVALID\' | translate }}\n' +
+    '                    </div>\n' +
+    '                    <div ng-message="ERROR_NO_NAME">{{ ::\'ERROR_NO_NAME\' | translate }}</div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <div ng-if="!$ctrl.config.useEmailAsLogin">\n' +
+    '                <md-input-container class="display bp4">\n' +
+    '                    <label>{{ ::\'LOGIN\' | translate}}</label>\n' +
+    '                    <input name="signupLogin" ng-disabled="$ctrl.transaction.busy()" autocomplete="off" ng-model="$ctrl.config.data.login" ng-init="$ctrl.config.data.login = \'\'"\n' +
+    '                         required tabindex="2" pip-clear-errors ng-keypress="$ctrl.onEnter($event)">\n' +
+    '\n' +
+    '                    <div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupLogin).hint && !$ctrl.hideObject.hint">\n' +
+    '                        {{::\'HINT_LOGIN\' | translate}}\n' +
+    '                    </div>\n' +
+    '                    <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.signupLogin)" md-auto-hide="false">\n' +
+    '                        <div ng-message="required">\n' +
+    '                            {{::\'HINT_LOGIN\' | translate}} {{::\'ERROR_LOGIN_INVALID\' | translate }}\n' +
+    '                        </div>\n' +
+    '                        \n' +
+    '                        <div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN\' | translate}}</div>\n' +
+    '                        <div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN\' | translate}}</div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '\n' +
+    '                <md-input-container class="display bp4">\n' +
+    '                    <label>{{::\'EMAIL\' | translate}}</label>\n' +
+    '                    <input name="userEmail" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors type="email" tabindex="3" \n' +
+    '                        ng-model="$ctrl.config.data.email" xxxxpip-email-unique="$ctrl.config.data.email" \n' +
+    '                        ng-change="$ctrl.onChangeEmail(\'userEmail\')" ng-model-options="{ delay: 500 }"  \n' +
+    '                        required ng-keypress="$ctrl.onEnter($event)" xxxpip-test="input-password" />\n' +
+    '\n' +
+    '                    <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                        {{::\'HINT_EMAIL\' | translate}}\n' +
+    '                    </div>\n' +
+    '                    <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail, true)" md-auto-hide="false" md-auto-hide="false">\n' +
+    '                        <div ng-message="emailUnique">{{::\'ERROR_ALREADY_EXIST\' | translate}}</div>\n' +
+    '                        <div ng-message="required">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div>\n' +
+    '                        <div ng-message="email">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div>\n' +
+    '                        <div ng-message="ERROR_NO_EMAIL">{{::\'ERROR_NO_EMAIL\' | translate}}</div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '            </div>\n' +
+    '            <div ng-if="$ctrl.config.useEmailAsLogin">\n' +
+    '                <md-input-container class="display bp4" xxxmd-is-error="$ctrl.isError($ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1))">\n' +
+    '                    <label>{{::\'EMAIL\' | translate}}</label>\n' +
+    '                    <input name="userEmail1" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors type="email" tabindex="3" \n' +
+    '                        ng-model="$ctrl.config.data.email"\n' +
+    '                        ng-change="$ctrl.onChangeEmail(\'userEmail1\')" ng-model-options="{ delay: 500 }"  \n' +
+    '                        required ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"/>\n' +
+    '\n' +
+    '                    <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                        {{::\'HINT_EMAIL\' | translate}}\n' +
+    '                    </div>\n' +
+    '                    <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.userEmail1, true)" md-auto-hide="false">\n' +
+    '                        <div ng-message="required">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div>\n' +
+    '                        <div ng-message="email">{{::\'ERROR_EMAIL_INVALID\' | translate }}</div>\n' +
+    '                        <div ng-message="emailUnique">{{::\'ERROR_ALREADY_EXIST_EMAIL\' | translate}}</div>\n' +
+    '                        <div ng-message="ERROR_WRONG_LOGIN">{{::\'ERROR_WRONG_LOGIN_EMAIL\' | translate}}</div>\n' +
+    '                        <div ng-message="ERROR_NO_LOGIN">{{::\'ERROR_NO_LOGIN_EMAIL\' | translate}}</div>\n' +
+    '                    </div>\n' +
+    '                </md-input-container>\n' +
+    '            </div>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4">\n' +
+    '                <label>{{::\'PASSWORD_SET\' | translate}}</label>\n' +
+    '                <input name="password" ng-disabled="$ctrl.transaction.busy()" autocomplete="off"\n' +
+    '                pip-clear-errors type="password" tabindex="4" ng-model="$ctrl.config.data.password"\n' +
+    '                    required minlength="6" ng-keypress="$ctrl.onEnter($event)" pip-test="input-password" />\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.password)" md-auto-hide="false">\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="ERROR_WRONG_PASSWORD" xxxng-if="!$ctrl.config.form.password.$pristine"> {{::\'ERROR_WRONG_PASSWORD\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <md-input-container class="display bp4" ng-if="!$ctrl.hideObject.passwordConfirm">\n' +
+    '                <label>{{::\'PASSWORD_CONFIRM\' | translate}}</label>\n' +
+    '                <input name="passwordConfirm" type="password" tabindex="4" required minlength="6" \n' +
+    '                    ng-model="$ctrl.confirmPassword" ng-disabled="$ctrl.transaction.busy()"\n' +
+    '                    pip-clear-errors \n' +
+    '                    pip-compare-password-match  compare-to2="$ctrl.config.data.password" \n' +
+    '                    ng-keypress="$ctrl.onEnter($event)" pip-test="input-password"\n' +
+    '                />\n' +
+    '\n' +
+    '                <div class="hint" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true).hint && !$ctrl.hideObject.hint">\n' +
+    '                    {{::\'HINT_PASSWORD\' | translate}}\n' +
+    '                </div>\n' +
+    '                <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.passwordConfirm, true)" md-auto-hide="false">\n' +
+    '                    <div ng-message="ERROR_compareTo"> {{::\'PASSWORD_MATCH\' | translate}} </div>\n' +
+    '                    <div ng-message="required"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                    <div ng-message="minlength"> {{::\'HINT_PASSWORD\' | translate}} </div>\n' +
+    '                </div>\n' +
+    '            </md-input-container>\n' +
+    '\n' +
+    '            <p class="text-small-secondary" ng-if="!$ctrl.hideObject.agreement">\n' +
+    '                {{::\'SIGNUP_TEXT_11\' | translate}}\n' +
+    '                <a href="#/legal/privacy" target="_blank">{{::\'SIGNUP_PRIVACY\' | translate}}</a> {{::\'SIGNUP_TEXT_12\' | translate}}\n' +
+    '                <a href="#/legal/services" target="_blank">{{::\'SIGNUP_SERVICES\' | translate}}</a>\n' +
+    '            </p>\n' +
+    '\n' +
+    '            <md-button ng-hide="$ctrl.transaction.busy()" class="md-raised m0  md-accent w-stretch" ng-click="$ctrl.onSignup()" aria-label="SIGNUP" type="submit"\n' +
+    '                ng-disabled="$ctrl.config.form.$invalid || ($ctrl.config.form.$pristine && !$ctrl.config.data.email) || $ctrl.config.data.serverUrl.length == 0\n' +
+    '                               || $ctrl.config.data.email.length == 0 || ($ctrl.config.data.login.length == 0 && !$ctrl.config.useEmailAsLogin) || (!$ctrl.config.data.password)\n' +
+    '                               || (!$ctrl.config.data.name) || $ctrl.config.data.name.length == 0 || $ctrl.config.data.password.length == 0">\n' +
+    '                {{::\'SIGNUP_TITLE\' | translate}}\n' +
+    '            </md-button>\n' +
+    '\n' +
+    '            <md-button ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" class="md-raised md-warn m0 w-stretch"\n' +
+    '                aria-label="ABORT">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '\n' +
+    '            <div class="tm24 layout-row" ng-if="$ctrl.pipMedia(\'gt-xs\') && !$ctrl.hideObject.signin">\n' +
+    '                <p class="text-small m0">\n' +
+    '                    {{::\'SIGNUP_TEXT_2\' | translate}}\n' +
+    '                    <a href="" ng-click="$ctrl.gotoSignin()">\n' +
+    '                        {{::\'SIGNUP_SIGNIN_HERE\' | translate}}\n' +
+    '                    </a>\n' +
+    '                </p>\n' +
+    '            </div>\n' +
+    '            <div class="tm24 divider-top" ng-if="$ctrl.pipMedia(\'xs\') && !$ctrl.hideObject.signin" style="margin-right: -16px; margin-left: -16px; background-color: rgb(238, 238, 238);">\n' +
+    '                <div class="h48 layout-row layout-align-center-end">\n' +
+    '                    <p class="bm0 text-small">{{::\'SIGNUP_TEXT_2\' | translate}}</p>\n' +
+    '                </div>\n' +
+    '                <div class="h48 layout-row layout-align-center-start">\n' +
+    '                    <p class="bm0 text-small"><a href="" ng-click="$ctrl.gotoSignin()">\n' +
+    '                        {{::\'SIGNUP_SIGNIN_HERE\' | translate}}</a></p>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4436,7 +5459,82 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('verify_email/VerifyEmail.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><div class="pip-body"><div class="pip-content layout-column flex" style="position: absolute; top: 0px; right: 0px; left: 0px; bottom: 0px; background-color: #fafafa; z-index: 100;" ng-if="$ctrl.showValidateProgress"><h2 class="p24-flex m0">{{\'VERIFY_EMAIL_WAIT\' | translate}}</h2><div class="layout-column flex layout-align-center-center"><md-progress-circular md-diameter="96"></md-progress-circular></div></div><div class="pip-content"><md-progress-linear ng-show="$ctrl.transaction.busy()" md-mode="indeterminate" class="pip-progress-top"></md-progress-linear><h2>{{\'VERIFY_EMAIL_TITLE\' | translate}}</h2><p class="title-padding">{{\'VERIFY_EMAIL_TEXT_1\' | translate}}</p><form name="form" novalidate="" ng-init="$ctrl.formCreated(form)" autocomplete="off"><div ng-messages="$ctrl.config.form.$serverError" class="text-error color-error bm8"><div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div><div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div><div ng-message="ERROR_UNKNOWN">{{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}</div></div><div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="tp8 bp8">{{::\'ENTRY_SERVER_URL\' | translate}}: {{ $ctrl.config.data.serverUrl }}</div><div class="tp8 bp8"><span ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</span> <span ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</span> : {{ $ctrl.config.data.login }}</div><md-input-container class="pip-no-hint"><label>{{::\'ENTRY_VERIFICATION_CODE\' | translate}}</label> <input name="code" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors="" ng-model="$ctrl.config.data.code" required="" tabindex="3"><div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.code).hint && !$ctrl.hideObject.hint">{{::\'ENTRY_VERIFICATION_CODE\' | translate}}</div><div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.code)" ng-if="!$ctrl.config.form.$pristine" class="md-input-error"><div ng-message="required">{{::\'ERROR_CODE_INVALID\' | translate }}</div><div ng-message="ERROR_INVALID_CODE">{{::\'ERROR_INVALID_CODE\' | translate }}</div></div></md-input-container><p>{{\'VERIFY_EMAIL_TEXT_21\' | translate}} <a ng-click="$ctrl.onRecover()" class="pointer" href="">{{\'VERIFY_EMAIL_RESEND\' | translate}}</a> {{\'VERIFY_EMAIL_TEXT_22\' | translate}}</p></form></div></div><div class="pip-footer"><md-button ng-click="$ctrl.goBack()" ng-hide="$ctrl.transaction.busy()" class="rm8" aria-label="CANCEL">{{::\'CANCEL\' | translate}}</md-button><md-button class="md-accent" ng-click="$ctrl.onVerify()" ng-hide="$ctrl.transaction.busy()" aria-label="VERIFY" ng-if="!$ctrl.showValidateProgress" type="submit" ng-disabled="$ctrl.config.data.code.length == 0 || $ctrl.config.data.login.length == 0 || (!$ctrl.config.data.login && $ctrl.config.form.$pristine) || (!$ctrl.config.data.code)">{{::\'VERIFY\' | translate}}</md-button><md-button class="md-warn" ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">{{::\'CANCEL\' | translate}}</md-button></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <div class="pip-body">\n' +
+    '            <div class="pip-content layout-column flex"\n' +
+    '                 style="position: absolute; top: 0px; right: 0px; left: 0px; bottom: 0px; background-color: #fafafa; z-index: 100;"\n' +
+    '                 ng-if="$ctrl.showValidateProgress">\n' +
+    '\n' +
+    '                <h2 class="p24-flex m0">{{\'VERIFY_EMAIL_WAIT\' | translate}}</h2>\n' +
+    '\n' +
+    '                <div class=" layout-column flex layout-align-center-center" > \n' +
+    '                        <md-progress-circular md-diameter="96"></md-progress-circular>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="pip-content">\n' +
+    '                <md-progress-linear ng-show="$ctrl.transaction.busy()" md-mode="indeterminate" class="pip-progress-top" >\n' +
+    '                </md-progress-linear>\n' +
+    '\n' +
+    '                <h2>{{\'VERIFY_EMAIL_TITLE\' | translate}}</h2>\n' +
+    '\n' +
+    '                <p class="title-padding">{{\'VERIFY_EMAIL_TEXT_1\' | translate}} </p>\n' +
+    '\n' +
+    '                <form name=\'form\' novalidate ng-init="$ctrl.formCreated(form)" autocomplete="off">\n' +
+    '                    <div ng-messages="$ctrl.config.form.$serverError" class="text-error color-error bm8">\n' +
+    '                        <div ng-message="ERROR_act_execute">{{::\'ERROR_ACT_EXECUTE\' | translate}}</div>\n' +
+    '                        <div ng-message="ERROR_-1">{{::\'ERROR_SERVER\' | translate}}</div>\n' +
+    '                        <div ng-message="ERROR_UNKNOWN">\n' +
+    '                            {{ $ctrl.config.form.$serverError.ERROR_UNKNOWN | translate }}\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '\n' +
+    '                    <div ng-show="$ctrl.config.showServerUrl && !$ctrl.hideObject.server" class="tp8 bp8">\n' +
+    '                        {{::\'ENTRY_SERVER_URL\' | translate}}: {{ $ctrl.config.data.serverUrl }}\n' +
+    '                    </div>\n' +
+    '\n' +
+    '                    <div class="tp8 bp8">\n' +
+    '                        <span ng-if="!$ctrl.config.useEmailAsLogin">{{::\'LOGIN\' | translate}}</span>\n' +
+    '                        <span ng-if="$ctrl.config.useEmailAsLogin">{{::\'EMAIL\' | translate}}</span>\n' +
+    '                        : {{ $ctrl.config.data.login }}\n' +
+    '                    </div>\n' +
+    '\n' +
+    '                    <md-input-container class="pip-no-hint">\n' +
+    '                        <label>{{::\'ENTRY_VERIFICATION_CODE\' | translate}}</label>\n' +
+    '                        <input name="code" ng-disabled="$ctrl.transaction.busy()" pip-clear-errors\n' +
+    '                               ng-model="$ctrl.config.data.code" required tabindex="3" />\n' +
+    '\n' +
+    '                        <div class="hint text-overflow w-stretch" ng-if="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.code).hint && !$ctrl.hideObject.hint">\n' +
+    '                            {{::\'ENTRY_VERIFICATION_CODE\' | translate}}\n' +
+    '                        </div>\n' +
+    '                        <div ng-messages="$ctrl.touchedErrorsWithHint($ctrl.config.form, $ctrl.config.form.code)" ng-if="!$ctrl.config.form.$pristine" class="md-input-error">\n' +
+    '                            <div ng-message="required">{{::\'ERROR_CODE_INVALID\' | translate }}</div>\n' +
+    '                            <div ng-message="ERROR_INVALID_CODE">{{::\'ERROR_INVALID_CODE\' | translate }}</div>\n' +
+    '                        </div>\n' +
+    '                    </md-input-container>\n' +
+    '\n' +
+    '                    <p> \n' +
+    '                        {{\'VERIFY_EMAIL_TEXT_21\' | translate}} \n' +
+    '                        <a ng-click="$ctrl.onRecover()" class="pointer" href="">{{\'VERIFY_EMAIL_RESEND\' | translate}}</a>\n' +
+    '                        {{\'VERIFY_EMAIL_TEXT_22\' | translate}} \n' +
+    '                    </p>\n' +
+    '                </form>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-click="$ctrl.goBack()" ng-hide="$ctrl.transaction.busy()" class="rm8" aria-label="CANCEL">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-accent" ng-click="$ctrl.onVerify()" ng-hide="$ctrl.transaction.busy()" aria-label="VERIFY" ng-if="!$ctrl.showValidateProgress" type="submit"\n' +
+    '                ng-disabled="$ctrl.config.data.code.length == 0 || $ctrl.config.data.login.length == 0 || (!$ctrl.config.data.login && $ctrl.config.form.$pristine) || (!$ctrl.config.data.code)">\n' +
+    '                {{::\'VERIFY\' | translate}}\n' +
+    '            </md-button>\n' +
+    '            <md-button class="md-warn " ng-show="$ctrl.transaction.busy()" ng-click="$ctrl.transaction.abort()" aria-label="ABORT">\n' +
+    '                {{::\'CANCEL\' | translate}}\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
@@ -4448,7 +5546,24 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('verify_email/VerifyEmailSuccess.html',
-    '<div class="pip-card-container pip-outer-scroll pip-entry"><pip-card width="400"><div class="pip-footer"><md-button ng-click="$ctrl.onContinue()" class="md-accent">{{\'CONTINUE\' | translate}}</md-button></div><div class="pip-body"><div class="pip-content"><h2>{{\'VERIFY_EMAIL_TITLE\' | translate}}</h2><p class="title-padding">{{\'VERIFY_EMAIL_SUCCESS_TEXT\' | translate}}</p></div></div></pip-card></div>');
+    '<div class="pip-card-container pip-outer-scroll pip-entry">\n' +
+    '    <pip-card width="400">\n' +
+    '        <div class="pip-footer">\n' +
+    '            <md-button ng-click="$ctrl.onContinue()" class="md-accent">\n' +
+    '                {{\'CONTINUE\' | translate}} \n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '        <div class="pip-body">\n' +
+    '            <div class="pip-content">\n' +
+    '                <h2>{{\'VERIFY_EMAIL_TITLE\' | translate}}</h2>\n' +
+    '\n' +
+    '                <p class="title-padding">\n' +
+    '                    {{\'VERIFY_EMAIL_SUCCESS_TEXT\' | translate}} \n' +
+    '                </p>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </pip-card>\n' +
+    '</div>');
 }]);
 })();
 
